@@ -1,0 +1,1661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>skade92 | Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #0b0c10;
+    --surface: #111318;
+    --card: #161920;
+    --border: #1f2330;
+    --accent: #5b8cff;
+    --accent2: #a78bfa;
+    --gold: #f5c542;
+    --text: #e8eaf0;
+    --muted: #7a7f96;
+    --red: #ff5b7f;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ---- NOISE OVERLAY ---- */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.5;
+  }
+
+  /* ---- NAV ---- */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.1rem 4rem;
+    background: rgba(11,12,16,0.75);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    position: relative;
+    display: inline-block;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.5rem 0.9rem;
+    border-radius: 999px;
+    transition: color 0.2s, background 0.2s;
+    cursor: pointer;
+  }
+
+  .nav-links a:hover { color: var(--text); background: rgba(255,255,255,0.04); }
+
+  .nav-links a.active-link {
+    color: #fff;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+  }
+
+  /* ---- HERO ---- */
+  .hero {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 8rem 2rem 4rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-glow {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(91,140,255,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .pfp-wrapper {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: 3px solid var(--accent);
+    box-shadow: 0 0 0 6px rgba(91,140,255,0.12), 0 0 40px rgba(91,140,255,0.25);
+    overflow: hidden;
+    margin-bottom: 2rem;
+    background: var(--card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeDown 0.8s ease both;
+  }
+
+  .pfp-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  .pfp-placeholder {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--accent);
+    user-select: none;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.8rem;
+    animation: fadeDown 0.8s 0.1s ease both;
+  }
+
+  .hero-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(3.5rem, 9vw, 7rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #e8eaf0 0%, #a0aaff 50%, #a78bfa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1.2rem;
+    animation: fadeDown 0.8s 0.2s ease both;
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 500px;
+    font-weight: 300;
+    animation: fadeDown 0.8s 0.3s ease both;
+  }
+
+  .hero-tags {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 1.8rem;
+    animation: fadeDown 0.8s 0.4s ease both;
+  }
+
+  .tag {
+    padding: 0.35rem 1rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    font-size: 0.8rem;
+    color: var(--muted);
+    background: var(--surface);
+    letter-spacing: 0.04em;
+  }
+
+  .hero-cta {
+    margin-top: 2.5rem;
+    animation: fadeDown 0.8s 0.5s ease both;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 0.85rem 2.2rem;
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    letter-spacing: 0.03em;
+    transition: background 0.2s, transform 0.15s;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover { background: #7aa3ff; transform: translateY(-2px); }
+
+  /* ---- PAGE SWITCHING ---- */
+  #page-container { position: relative; z-index: 1; }
+
+  .page { display: none; }
+  .page.active { display: block; animation: pageIn 0.35s ease both; }
+
+  @keyframes pageIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ---- SECTION BASE ---- */
+  section {
+    position: relative;
+    z-index: 1;
+    padding: 6rem 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.6rem;
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-divider {
+    width: 100%;
+    height: 1px;
+    background: var(--border);
+    margin: 0;
+  }
+
+  /* ---- ABOUT ---- */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+    margin-top: 2rem;
+  }
+
+  .about-text p {
+    color: var(--muted);
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+    font-weight: 300;
+  }
+
+  .about-text p strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .skills-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .skill-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem 1.2rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    transition: border-color 0.2s;
+  }
+
+  .skill-item:hover { border-color: var(--accent); }
+
+  .skill-icon {
+    font-size: 1.4rem;
+    line-height: 1;
+    padding-top: 2px;
+  }
+
+  .skill-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+  }
+
+  .skill-desc {
+    font-size: 0.82rem;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  /* ---- SUMMARY CARDS ---- */
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .summary-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem 1.2rem;
+    text-decoration: none;
+    text-align: center;
+    transition: border-color 0.2s, transform 0.2s;
+    cursor: pointer;
+  }
+
+  .summary-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+  }
+
+  .summary-card .icon { font-size: 2rem; margin-bottom: 0.6rem; }
+  .summary-card .label {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--text);
+  }
+
+  /* ---- CONTENT CARDS ---- */
+  .content-block {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 2.5rem;
+    margin-top: 2rem;
+  }
+
+  .content-block p {
+    color: var(--muted);
+    font-size: 0.97rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+  }
+
+  .content-block p:last-child { margin-bottom: 0; }
+
+  .content-block p strong { color: var(--text); font-weight: 500; }
+
+  .stat-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .stat-pill {
+    padding: 0.4rem 1.1rem;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+  }
+
+  .stat-pill.blue { background: rgba(91,140,255,0.12); color: var(--accent); border: 1px solid rgba(91,140,255,0.25); }
+  .stat-pill.purple { background: rgba(167,139,250,0.12); color: var(--accent2); border: 1px solid rgba(167,139,250,0.25); }
+  .stat-pill.gold { background: rgba(245,197,66,0.1); color: var(--gold); border: 1px solid rgba(245,197,66,0.25); }
+  .stat-pill.red { background: rgba(255,91,127,0.1); color: var(--red); border: 1px solid rgba(255,91,127,0.25); }
+
+  /* ---- WORKS GRID (builds) ---- */
+  .works-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .work-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .work-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+
+  .work-thumb {
+    height: 180px;
+    background: var(--border);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .work-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+    display: block;
+  }
+
+  .work-card:hover .work-thumb img {
+    transform: scale(1.05);
+  }
+
+  .work-info { padding: 1rem 1.2rem; }
+  .work-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--text);
+    margin-bottom: 0.3rem;
+  }
+  .work-desc { font-size: 0.78rem; color: var(--muted); }
+
+  /* ---- SECTION HEADING (small caps label above a grid) ---- */
+  .subheading {
+    font-family:'Syne',sans-serif;
+    font-size:0.8rem;
+    margin-top:2.5rem;
+    margin-bottom:0.5rem;
+    color:var(--muted);
+    font-weight:600;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+  }
+
+  .games-tested-count {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-top: -0.15rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .games-tested-count strong { color: var(--text); font-weight: 700; }
+
+  /* ---- ASSET CARD GRID (games tested / wiki) ---- */
+  .asset-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .asset-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .asset-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+
+  .asset-thumb {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--border);
+  }
+
+  .asset-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .asset-thumb .letter {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.8rem;
+    color: rgba(255,255,255,0.85);
+  }
+
+  .asset-info { padding: 0.85rem 1rem 1rem; }
+
+  .asset-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.87rem;
+    color: var(--text);
+    margin-bottom: 0.3rem;
+    line-height: 1.3;
+  }
+
+  .asset-meta {
+    font-size: 0.74rem;
+    color: var(--muted);
+    margin-bottom: 0.6rem;
+  }
+
+  .asset-meta strong { color: var(--accent2); font-weight: 600; }
+
+  .asset-link {
+    font-size: 0.74rem;
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  .asset-card:hover .asset-link { color: #a0aaff; }
+
+  .asset-card { cursor: pointer; }
+
+  /* ---- ASSET MODAL (game/wiki preview popup) ---- */
+  .asset-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(6,7,10,0.72);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+
+  .asset-modal-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .asset-modal {
+    width: 100%;
+    max-width: 380px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    overflow: hidden;
+    position: relative;
+    transform: translateY(16px) scale(0.97);
+    transition: transform 0.25s ease;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+
+  .asset-modal-overlay.open .asset-modal { transform: translateY(0) scale(1); }
+
+  .asset-modal-close {
+    position: absolute;
+    top: 0.9rem;
+    right: 0.9rem;
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--border);
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.1rem;
+    line-height: 1;
+    z-index: 2;
+    transition: background 0.2s;
+  }
+
+  .asset-modal-close:hover { background: rgba(255,255,255,0.12); }
+
+  .asset-modal-thumb {
+    width: 100%;
+    height: 190px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--border);
+  }
+
+  .asset-modal-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .asset-modal-thumb .letter {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 3rem;
+    color: rgba(255,255,255,0.85);
+  }
+
+  .asset-modal-body { padding: 1.3rem 1.4rem 1.5rem; }
+
+  .asset-modal-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.15rem;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+
+  .asset-modal-meta {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 1.3rem;
+  }
+
+  .asset-modal-meta strong { color: var(--accent2); font-weight: 600; }
+
+  .asset-modal-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0.9rem 1.2rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-family: 'Syne', sans-serif;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+    transition: transform 0.15s, box-shadow 0.2s;
+  }
+
+  .asset-modal-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(91,140,255,0.3);
+  }
+
+  /* ---- MODAL LIVE STATS (visits / actives / created) ---- */
+  .asset-modal-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.6rem;
+    margin-bottom: 1.3rem;
+  }
+
+  .modal-stat {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.65rem 0.4rem;
+    text-align: center;
+  }
+
+  .modal-stat .msval {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.05rem;
+    color: var(--accent2);
+    line-height: 1.2;
+  }
+
+  .modal-stat .mslabel {
+    font-size: 0.65rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-top: 0.25rem;
+  }
+
+  .modal-stat.loading .msval { color: var(--muted); }
+
+  /* ---- SORT CONTROLS (games grid) ---- */
+  .sort-controls {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .sort-label {
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin-right: 0.3rem;
+    font-weight: 500;
+  }
+
+  .sort-btn {
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+  }
+
+  .sort-btn:hover:not(:disabled) { border-color: var(--accent); color: var(--text); }
+
+  .sort-btn.active {
+    color: #fff;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    border-color: transparent;
+  }
+
+  .sort-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  /* ---- INLINE HYPERLINKS ---- */
+  .inline-link {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(91,140,255,0.35);
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .inline-link:hover {
+    color: #a0aaff;
+    border-bottom-color: #a0aaff;
+  }
+
+  /* ---- HIGHLIGHT GRID ---- */
+  .highlight-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1.8rem;
+  }
+
+  .highlight-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.4rem 1.3rem;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .highlight-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+  }
+
+  .highlight-card .hc-icon {
+    font-size: 1.8rem;
+    margin-bottom: 0.7rem;
+    display: block;
+  }
+
+  .highlight-card .hc-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--text);
+    margin-bottom: 0.35rem;
+  }
+
+  .highlight-card .hc-desc {
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  /* ---- CONTACT ---- */
+  .contact-block {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.1rem 1.5rem;
+    text-decoration: none;
+    color: var(--text);
+    transition: border-color 0.2s, transform 0.15s;
+  }
+
+  .social-link:hover { border-color: var(--accent); transform: translateX(5px); }
+
+  .social-icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .social-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+  .social-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+  .social-handle { font-size: 0.82rem; color: var(--muted); }
+  .social-arrow { margin-left: auto; color: var(--muted); font-size: 1.1rem; }
+
+  /* ---- FOOTER ---- */
+  footer {
+    text-align: center;
+    padding: 3rem 2rem;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.82rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  footer span { color: var(--accent); }
+
+  /* ---- ANIMATIONS ---- */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ---- RESPONSIVE ---- */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 0.15rem; flex-wrap: wrap; justify-content: flex-end; }
+    .nav-links a { font-size: 0.72rem; padding: 0.4rem 0.6rem; }
+  }
+  @media (max-width: 700px) {
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .summary-grid { grid-template-columns: repeat(2, 1fr); }
+    .works-grid { grid-template-columns: 1fr; }
+    section { padding: 4rem 1.2rem; }
+    .content-block { padding: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" data-page="home">skade92</a>
+  <ul class="nav-links">
+    <li><a data-page="home">About</a></li>
+    <li><a data-page="developing">Dev</a></li>
+    <li><a data-page="beta">Testing</a></li>
+    <li><a data-page="mod">Mod</a></li>
+    <li><a data-page="middleman">MM</a></li>
+    <li><a data-page="wiki">Wiki</a></li>
+    <li><a data-page="contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO (always visible, sits above the tabbed pages) -->
+<div class="hero" id="hero">
+  <div class="hero-glow"></div>
+
+  <div class="pfp-wrapper">
+    <img src="assets/profile.png" alt="Skade profile picture"/>
+  </div>
+
+  <p class="hero-eyebrow">Welcome to my portfolio</p>
+  <h1 class="hero-title">skade92</h1>
+  <p class="hero-sub">Developer · Beta Tester · Moderator · Trusted Middleman</p>
+
+  <div class="hero-tags">
+    <span class="tag">🇫🇷 French</span>
+    <span class="tag">🐍 Python 5+ yrs</span>
+    <span class="tag">🎮 Roblox Dev</span>
+    <span class="tag">🛡️ Habit Games Staff</span>
+    <span class="tag">🤝 Trusted MM</span>
+    <span class="tag">📊 Data & Business</span>
+  </div>
+
+  <div class="hero-cta">
+    <a data-page="home" class="btn-primary">Discover more ↓</a>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- PAGE CONTAINER: only one .page is visible at a time -->
+<main id="page-container">
+
+  <!-- HOME = About + What I Do (shown by default) -->
+  <div class="page active" id="page-home">
+
+    <section id="about">
+      <p class="section-label reveal">About</p>
+      <h2 class="section-title reveal">Who Am I?</h2>
+
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>
+            Hey! I'm <strong>Skade</strong>, an 18-year-old developer with a real passion for building things, whether that's in code, in games, or in the communities around them. I got into Roblox development more recently, but my <strong>5+ years of Python experience</strong> gave me a solid foundation that made picking up Lua feel natural.
+          </p>
+          <p>
+            I work in <strong>Data & Business</strong>, which means I'm comfortable navigating anything technical, from scripting and automation to thinking analytically about how systems fit together.
+          </p>
+          <p>
+            Beyond the technical side, I care a lot about <strong>how I work with people</strong>. I'm always responsive, honest, and I take every project seriously regardless of its size. Clear communication isn't an afterthought for me, it's part of the job.
+          </p>
+          <p>
+            I also served as a <strong>trusted middleman and beta tester</strong> for <a href="https://www.roblox.com/communities/12860813/Habit-Games#!/about" target="_blank" class="inline-link">Habit Games</a> (60K+ CCU), a role that's really shaped how I think about reliability, accountability, and delivering quality work. I've even contributed to fandom wikis, because I genuinely enjoy building useful things for communities.
+          </p>
+          <p style="color: var(--accent); font-style: italic; font-size: 0.9rem;">
+            Every project is a chance to learn something new, and I wouldn't have it any other way.
+          </p>
+        </div>
+
+        <div class="skills-list reveal">
+          <div class="skill-item">
+            <span class="skill-icon">🏗️</span>
+            <div>
+              <div class="skill-name">Building</div>
+              <div class="skill-desc">Low-poly & modern architecture. Versatile and adaptable to different styles with time.</div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <span class="skill-icon">⚙️</span>
+            <div>
+              <div class="skill-name">Scripting</div>
+              <div class="skill-desc">GUI development, interactive buttons, and functional game mechanics in Lua/Python.</div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <span class="skill-icon">📊</span>
+            <div>
+              <div class="skill-name">Data & Business</div>
+              <div class="skill-desc">Professional background that keeps me sharp with anything code or data related.</div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <span class="skill-icon">🤝</span>
+            <div>
+              <div class="skill-name">Professionalism</div>
+              <div class="skill-desc">Clear communication, high standards, and total reliability, every single time.</div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <span class="skill-icon">🌍</span>
+            <div>
+              <div class="skill-name">Languages</div>
+              <div class="skill-desc">Fluent in French (native) and English. Basic Spanish.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- SUMMARY NAV ("What I Do") -->
+    <section style="padding: 3rem 2rem;">
+      <p class="section-label reveal">Navigation</p>
+      <h2 class="section-title reveal">What I Do</h2>
+      <div class="summary-grid">
+        <a class="summary-card reveal" data-page="developing">
+          <div class="icon">💻</div>
+          <div class="label">Developing</div>
+        </a>
+        <a class="summary-card reveal" data-page="beta">
+          <div class="icon">🧪</div>
+          <div class="label">Beta Testing</div>
+        </a>
+        <a class="summary-card reveal" data-page="mod">
+          <div class="icon">🛡️</div>
+          <div class="label">Moderating</div>
+        </a>
+        <a class="summary-card reveal" data-page="middleman">
+          <div class="icon">🤝</div>
+          <div class="label">Middleman</div>
+        </a>
+        <a class="summary-card reveal" data-page="wiki">
+          <div class="icon">📚</div>
+          <div class="label">Wiki</div>
+        </a>
+        <a class="summary-card reveal" data-page="contact">
+          <div class="icon">📬</div>
+          <div class="label">Contact Me</div>
+        </a>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- DEVELOPING -->
+  <div class="page" id="page-developing">
+    <section id="developing">
+      <p class="section-label reveal">01 · Developing</p>
+      <h2 class="section-title reveal">Building & Scripting</h2>
+
+      <div class="content-block reveal">
+        <p>
+          I'm relatively new to Roblox development, but don't let that fool you, I learn <strong>fast</strong>. Having spent <strong>5+ years with Python</strong> means I already think like a programmer: I understand logic, structure, data, and problem-solving. Picking up Lua has been a smooth transition because the fundamentals are already deeply ingrained.
+        </p>
+        <p>
+          My professional background in <strong>Data & Business</strong> has made me comfortable with everything code and data-related, from scripting automation to handling larger structured projects. I adapt quickly, ask the right questions, and get things done.
+        </p>
+        <p>
+          On the building side, I specialize in <strong>low-poly and modern-style architecture</strong>, though I'm open to adapting to different styles given the time. Whether it's a clean aesthetic build or a functional scripted system, I bring the same level of care and intention to every project.
+        </p>
+
+        <div class="stat-row">
+          <span class="stat-pill blue">Python 5+ years</span>
+          <span class="stat-pill purple">Lua / Roblox</span>
+          <span class="stat-pill gold">Data & Business</span>
+          <span class="stat-pill blue">Low-Poly Builds</span>
+          <span class="stat-pill purple">GUI Scripting</span>
+        </div>
+      </div>
+
+      <h3 class="subheading reveal">Past Works</h3>
+      <div class="works-grid reveal">
+        <div class="work-card">
+          <div class="work-thumb"><img src="assets/build4.png" alt="Modern House"/></div>
+          <div class="work-info">
+            <div class="work-name">Modern House</div>
+            <div class="work-desc">Clean contemporary architecture with flat roofing, glass facades, and a minimalist aesthetic.</div>
+          </div>
+        </div>
+        <div class="work-card">
+          <div class="work-thumb"><img src="assets/build3.png" alt="Car Concessionary"/></div>
+          <div class="work-info">
+            <div class="work-name">Car Concessionary</div>
+            <div class="work-desc">Commercial showroom build featuring large glass display windows and a bold modern structure.</div>
+          </div>
+        </div>
+        <div class="work-card">
+          <div class="work-thumb"><img src="assets/build2.png" alt="Classic House"/></div>
+          <div class="work-info">
+            <div class="work-name">Classic House</div>
+            <div class="work-desc">Traditional residential design with a warm red roof, covered porch, and timeless charm.</div>
+          </div>
+        </div>
+        <div class="work-card">
+          <div class="work-thumb"><img src="assets/build1.png" alt="Castle"/></div>
+          <div class="work-info">
+            <div class="work-name">Castle</div>
+            <div class="work-desc">Medieval fortress complete with towered walls, battlements, and a grand wooden drawbridge.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- BETA TESTING -->
+  <div class="page" id="page-beta">
+    <section id="beta">
+      <p class="section-label reveal">02 · Beta Testing</p>
+      <h2 class="section-title reveal">Quality Assurance</h2>
+
+      <div class="content-block reveal">
+        <p>
+          Beta testing is something I've been doing seriously for over <strong>3 years</strong>, and it's a role I genuinely enjoy. I'm an official beta tester for the <a href="https://www.roblox.com/communities/12860813/Habit-Games#!/about" target="_blank" class="inline-link"><strong>Habit Games</strong> group</a> (60K+ CCU), where I've contributed to <strong>50+ games</strong> throughout my time there. From hunting down obscure bugs to giving structured feedback on game feel, balancing, and player experience, I approach every test with a critical and constructive mindset.
+        </p>
+        <p>
+          I'm also active in the <a href="https://discord.gg/pR2f83Nd6Z" target="_blank" class="inline-link"><strong>QA Central server</strong></a>, which has further sharpened my ability to report issues clearly and communicate findings in a way that's actually useful to developers.
+        </p>
+        <p>
+          Having played Roblox since <strong>2018</strong> with countless hours across simulators, FPS games, tycoons, and adventure experiences means I bring real player instinct to my testing. I know what feels right, what feels off, and I can put it into words, covering both the positives and the things that need work.
+        </p>
+
+        <div class="stat-row">
+          <span class="stat-pill blue">3+ Years Testing</span>
+          <span class="stat-pill gold">50+ Games Tested</span>
+          <span class="stat-pill red">250M+ Visit Contributed</span>
+          <span class="stat-pill purple">Habit Games Official</span>
+          <span class="stat-pill blue">QA Central</span>
+        </div>
+      </div>
+
+      <h3 class="subheading reveal">Games I've Tested</h3>
+      <p class="games-tested-count reveal" id="games-tested-count"></p>
+      <p class="games-tested-count reveal" id="stats-updated-label" style="font-size:0.72rem;"></p>
+      <div class="sort-controls reveal">
+        <span class="sort-label">Sort by:</span>
+        <button class="sort-btn active" data-sort="default">Default</button>
+        <button class="sort-btn" data-sort="visits" disabled>Most Successful (Visits)</button>
+        <button class="sort-btn" data-sort="playing" disabled>Most Popular (Active)</button>
+      </div>
+      <!--
+        This grid is rendered from the `gamesTested` array in the <script> at
+        the bottom of the page. To add a game, dev name, or thumbnail image,
+        just add/edit one line in that array — no need to duplicate HTML.
+      -->
+      <div class="asset-grid reveal" id="games-grid"></div>
+    </section>
+    <div class="highlight-grid reveal" style="max-width:1000px;margin:2.5rem auto 0;padding:0 2rem;">
+      <div class="highlight-card">
+        <span class="hc-icon">🐛</span>
+        <div class="hc-title">Bug Hunting</div>
+        <div class="hc-desc">Tracking down edge cases, reproducing issues reliably, and reporting them with enough context for developers to act fast.</div>
+      </div>
+      <div class="highlight-card">
+        <span class="hc-icon">⚖️</span>
+        <div class="hc-title">Game Balance</div>
+        <div class="hc-desc">Evaluating feel, pacing, and progression from a real player's perspective, not just what's broken, but what's off.</div>
+      </div>
+      <div class="highlight-card">
+        <span class="hc-icon">📋</span>
+        <div class="hc-title">Structured Feedback</div>
+        <div class="hc-desc">Writing organized, developer-ready reports that are detailed enough to be useful and clear enough to be acted on.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODERATING -->
+  <div class="page" id="page-mod">
+    <section id="mod">
+      <p class="section-label reveal">03 · Moderating</p>
+      <h2 class="section-title reveal">Community Management</h2>
+
+      <div class="content-block reveal">
+        <p>
+          I've been part of the <a href="https://www.roblox.com/communities/12860813/Habit-Games#!/about" target="_blank" class="inline-link"><strong>Habit Games</strong> staff team</a> for over 3 years, helping moderate a Discord community of <strong>60,000+ members</strong>. It's a role I take seriously, and the track record speaks for itself, I've consistently shown up, stayed active, and handled situations with fairness and calm.
+        </p>
+        <p>
+          On the technical side, I'm comfortable with server setup from scratch: <strong>embeds, auto-moderation bots, role configuration, logging systems</strong>, the full stack of what makes a well-run server. I can spin one up efficiently without needing much hand-holding.
+        </p>
+        <p>
+          What really drives my approach to moderation is that I only commit to communities I genuinely care about, both the <strong>game itself and the people in it</strong>. When you actually enjoy what the community is built around, it shows in the quality of your moderation. People can tell the difference between someone just doing a job and someone who actually gives a damn.
+        </p>
+
+        <div class="stat-row">
+          <span class="stat-pill blue">3+ Years Staff</span>
+          <span class="stat-pill gold">60K+ Member Server</span>
+          <span class="stat-pill purple">Habit Games</span>
+          <span class="stat-pill blue">Bot & Embed Setup</span>
+          <span class="stat-pill red">Auto-Mod Systems</span>
+        </div>
+      </div>
+
+      <div class="highlight-grid reveal">
+        <div class="highlight-card">
+          <span class="hc-icon">⚙️</span>
+          <div class="hc-title">Server Setup</div>
+          <div class="hc-desc">Building Discord servers from scratch: embeds, role hierarchies, logging channels, and custom bots, fully configured.</div>
+        </div>
+        <div class="highlight-card">
+          <span class="hc-icon">🛡️</span>
+          <div class="hc-title">Community Moderation</div>
+          <div class="hc-desc">Handling conflicts, enforcing rules, and keeping culture healthy, on a 60K+ member server for 3+ years.</div>
+        </div>
+        <div class="highlight-card">
+          <span class="hc-icon">🤖</span>
+          <div class="hc-title">Auto-Mod Systems</div>
+          <div class="hc-desc">Configuring automated moderation for 24/7 coverage, spam filters, raid protection, and action logging.</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- MIDDLEMAN -->
+  <div class="page" id="page-middleman">
+    <section id="middleman">
+      <p class="section-label reveal">04 · Middleman</p>
+      <h2 class="section-title reveal">Trusted Transactions</h2>
+
+      <div class="content-block reveal">
+        <p>
+          I've been operating as a trusted middleman for <strong>3+ years</strong>, and trust is something I've earned, not assumed. I got my start as an <strong>official trusted middleman for Punch Simulator</strong> (500M+ visits), where I handled a high volume of tickets to facilitate safe gamepass and pet trades between players. It was a role that taught me the importance of precision, neutrality, and speed.
+        </p>
+        <p>
+          Since then, my middleman work has expanded beyond <a href="https://www.roblox.com/games/14236123211/Punch-Simulator" target="_blank" class="inline-link">Punch Simulator</a> to other games including <a href="https://www.roblox.com/games/15234998219/Farmer-Simulator" target="_blank" class="inline-link">Farmer Simulator</a>, <a href="https://www.roblox.com/games/138064211947107/Unbox-Your-Car" target="_blank" class="inline-link">Unbox Your Car</a>, <a href="https://www.roblox.com/games/138161219313147/Unbox-a-Factory" target="_blank" class="inline-link">Unbox a Factory</a>, and more. No matter the context, my approach stays the same: clear process, no shortcuts, and the transaction doesn't move until both parties are protected.
+        </p>
+        <p>
+          I've accumulated <strong>numerous vouches</strong> across trust-critical games like <a href="https://www.roblox.com/games/4872321990/Islands" target="_blank" class="inline-link"><strong>Island</strong></a> and <a href="https://www.roblox.com/games/1537690962/Bee-Swarm-Simulator" target="_blank" class="inline-link"><strong>Bee Swarm Simulator</strong></a>, communities where your reputation is everything and a single bad act can define you permanently. Mine has stayed clean throughout, and that's something I'm genuinely proud of.
+        </p>
+
+        <div class="stat-row">
+          <span class="stat-pill gold">3+ Years MM</span>
+          <span class="stat-pill blue">Punch Simulator Official</span>
+          <span class="stat-pill purple">500M+ Visits Game</span>
+          <span class="stat-pill blue">Island Vouches</span>
+          <span class="stat-pill red">Bee Swarm Vouches</span>
+        </div>
+      </div>
+
+      <div class="highlight-grid reveal">
+        <div class="highlight-card">
+          <span class="hc-icon">🔒</span>
+          <div class="hc-title">Safe Trades</div>
+          <div class="hc-desc">No transaction moves until both parties are fully protected. Clear process, every time, no exceptions.</div>
+        </div>
+        <div class="highlight-card">
+          <span class="hc-icon">⚖️</span>
+          <div class="hc-title">Neutral & Transparent</div>
+          <div class="hc-desc">No bias, no shortcuts, just a clean, documented process that protects both sides of the deal equally.</div>
+        </div>
+        <div class="highlight-card">
+          <span class="hc-icon">✅</span>
+          <div class="hc-title">Verified Vouches</div>
+          <div class="hc-desc">Proven track record across Island, Bee Swarm Simulator, and Punch Simulator, earned, not assumed.</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- WIKI -->
+  <div class="page" id="page-wiki">
+    <section id="wiki">
+      <p class="section-label reveal">05 · Wiki</p>
+      <h2 class="section-title reveal">Fandom Wikis</h2>
+
+      <div class="content-block reveal">
+        <p>
+          I genuinely enjoy building useful resources for gaming communities, and wikis are one of the best ways to do that. When I love a game, I want others to have access to good, accurate, well-organized information, so I make it myself.
+        </p>
+        <p>
+          I have my own <a href="https://community.fandom.com/wiki/User:Skade92" target="_blank" class="inline-link"><strong>Fandom profile</strong></a>, and I've created and contributed to several wikis over the years, including some that are actively used by large communities to this day.
+        </p>
+      </div>
+
+      <h3 class="subheading reveal">Wikis I've Contributed To</h3>
+      <!--
+        Same idea as the games grid: edit the `wikisContributed` array in
+        the script below to add, remove, or update a wiki entry.
+      -->
+      <div class="asset-grid reveal" id="wiki-grid"></div>
+    </section>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="page" id="page-contact">
+    <section id="contact">
+      <p class="section-label reveal">06 · Contact</p>
+      <h2 class="section-title reveal">Let's Connect</h2>
+      <p class="reveal" style="color:var(--muted); font-size:0.97rem; font-weight:300; margin-bottom:0.5rem;">
+        Feel free to reach out through any of my socials below. Whether you have a project in mind, want to talk, or just want to connect, my DMs are open.
+      </p>
+
+      <div class="contact-block">
+        <a class="social-link reveal" href="https://discord.com/users/skade92" target="_blank">
+          <span class="social-icon">
+            <svg viewBox="0 0 127.14 96.36" xmlns="http://www.w3.org/2000/svg">
+              <path fill="#5865F2" d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/>
+            </svg>
+          </span>
+          <div>
+            <div class="social-name">Discord</div>
+            <div class="social-handle">skade92</div>
+          </div>
+          <span class="social-arrow">→</span>
+        </a>
+
+        <a class="social-link reveal" href="https://www.roblox.com/users/885975114/profile" target="_blank">
+          <span class="social-icon">
+            <img src="assets/roblox-logo.png" alt="Roblox" style="width:32px;height:32px;object-fit:contain;border-radius:6px;"/>
+          </span>
+          <div>
+            <div class="social-name">Roblox</div>
+            <div class="social-handle">skade92</div>
+          </div>
+          <span class="social-arrow">→</span>
+        </a>
+
+        <a class="social-link reveal" href="https://www.youtube.com/@skade9268" target="_blank">
+          <span class="social-icon">
+            <img src="assets/youtube-logo.png" alt="YouTube" style="width:32px;height:32px;object-fit:contain;"/>
+          </span>
+          <div>
+            <div class="social-name">YouTube</div>
+            <div class="social-handle">@skade9268</div>
+          </div>
+          <span class="social-arrow">→</span>
+        </a>
+      </div>
+    </section>
+  </div>
+
+</main>
+
+<!-- FOOTER (always visible) -->
+<footer>
+  Crafted by <span>skade92</span> · 2025
+</footer>
+
+<!-- ASSET PREVIEW MODAL (opens on game/wiki card click) -->
+<div class="asset-modal-overlay" id="asset-modal-overlay">
+  <div class="asset-modal">
+    <div class="asset-modal-close" id="asset-modal-close">✕</div>
+    <div class="asset-modal-thumb" id="asset-modal-thumb"></div>
+    <div class="asset-modal-body">
+      <div class="asset-modal-name" id="asset-modal-name"></div>
+      <div class="asset-modal-meta" id="asset-modal-meta"></div>
+      <div class="asset-modal-stats" id="asset-modal-stats"></div>
+      <a class="asset-modal-btn" id="asset-modal-btn" href="#" target="_blank" rel="noopener">View on Roblox →</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  /* =====================================================================
+     GAMES TESTED — one object per game.
+     - name : game title (required)
+     - url  : link to the Roblox page (required)
+     - dev  : developer / group name (optional, shows as "Dev: ...")
+     - img  : path to a thumbnail image, e.g. "assets/games/my-boba-store.png"
+              (optional — leave empty "" and a colored placeholder with the
+              game's first letter will be used instead until you add a file)
+     ===================================================================== */
+  /* GAMES TESTED — loaded from data/games.json (see that file to add/edit
+     a game: name, url, dev, img). Kept external so the Node script that
+     refreshes live stats can read the exact same list. */
+  let gamesTested = [];
+
+  /* =====================================================================
+     WIKIS CONTRIBUTED TO — same pattern as above.
+     ===================================================================== */
+  const wikisContributed = [
+    { name: "Habit Games Wiki", url: "https://official-habit-games.fandom.com/wiki/Official_Habit_Games_Wiki", dev: "Habit Games", img: "assets/habit-games-logo.jpeg", desc: "Created the official wiki for the Habit Games Group." },
+    { name: "Anime Immortals Wiki", url: "https://anime-immortals.fandom.com/wiki/Anime_Immortals_Wiki", dev: "Habit Games", img: "assets/anime-immortals-banner.webp", desc: "Created the wiki for Anime Immortals, a Habit Games title." },
+    { name: "Anime Apex Wiki", url: "https://anime-apex.fandom.com/wiki/Anime_Apex_Wiki", dev: "Anime Apex Games", img: "assets/anime-apex-logo.webp", desc: "Built the dedicated wiki with guides and game info." },
+    { name: "Counter Blox Wiki", url: "https://counter-blox.fandom.com/wiki/Home", dev: "Counter Blox", img: "assets/counter-blox-banner.webp", desc: "Contributed extensively; still active today." }
+  ];
+
+  /* ---- Helpers to render an asset-card grid (used for games + wiki) ---- */
+  function hashHue(str) {
+    let h = 0;
+    for (let i = 0; i < str.length; i++) h = str.charCodeAt(i) + ((h << 5) - h);
+    return Math.abs(h) % 360;
+  }
+
+  function renderAssetGrid(containerId, items, { showDesc = false, linkLabel = 'View on Roblox →', isGame = false } = {}) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    container.innerHTML = '';
+
+    items.forEach(item => {
+      const hue = hashHue(item.name);
+      const letter = item.name.trim().charAt(0).toUpperCase();
+      const gradient = `linear-gradient(135deg,hsl(${hue},60%,42%),hsl(${(hue+45)%360},55%,32%))`;
+      const thumb = item.img
+        ? `<img src="${item.img}" alt="${item.name}" onerror="this.parentElement.innerHTML='<span class=\\'letter\\'>${letter}</span>'; this.parentElement.style.background='${gradient}';"/>`
+        : `<span class="letter">${letter}</span>`;
+      const thumbStyle = item.img ? '' : `style="background:${gradient}"`;
+      const meta = showDesc && item.desc
+        ? item.desc
+        : `<strong>Dev:</strong> ${item.dev ? item.dev : 'add developer name'}`;
+
+      const card = document.createElement('div');
+      card.className = 'asset-card reveal visible';
+      card.innerHTML = `
+        <div class="asset-thumb" ${thumbStyle}>${thumb}</div>
+        <div class="asset-info">
+          <div class="asset-name">${item.name}</div>
+          <div class="asset-meta">${meta}</div>
+          <div class="asset-link">${linkLabel}</div>
+        </div>`;
+
+      card.addEventListener('click', () => openAssetModal(item, { showDesc, gradient, letter, linkLabel, isGame }));
+      container.appendChild(card);
+    });
+  }
+
+  /* =====================================================================
+     ASSET PREVIEW MODAL — opens instead of jumping straight to Roblox.
+     ===================================================================== */
+  const assetModalOverlay = document.getElementById('asset-modal-overlay');
+  const assetModalThumb   = document.getElementById('asset-modal-thumb');
+  const assetModalName    = document.getElementById('asset-modal-name');
+  const assetModalMeta    = document.getElementById('asset-modal-meta');
+  const assetModalStats   = document.getElementById('asset-modal-stats');
+  const assetModalBtn     = document.getElementById('asset-modal-btn');
+  const assetModalClose   = document.getElementById('asset-modal-close');
+
+  let currentModalPlaceId = null;
+
+  function openAssetModal(item, { showDesc = false, gradient = '', letter = '', linkLabel = 'View on Roblox →', isGame = false } = {}) {
+    assetModalThumb.style.background = item.img ? '' : gradient;
+    assetModalThumb.innerHTML = item.img
+      ? `<img src="${item.img}" alt="${item.name}" onerror="this.parentElement.innerHTML='<span class=\\'letter\\'>${letter}</span>'; this.parentElement.style.background='${gradient}';"/>`
+      : `<span class="letter">${letter}</span>`;
+
+    assetModalName.textContent = item.name;
+    assetModalMeta.innerHTML = showDesc && item.desc
+      ? item.desc
+      : `<strong>Dev:</strong> ${item.dev ? item.dev : 'add developer name'}`;
+
+    assetModalBtn.href = item.url;
+    assetModalBtn.textContent = linkLabel;
+
+    if (isGame) {
+      currentModalPlaceId = extractPlaceId(item.url);
+      renderModalStats(currentModalPlaceId);
+    } else {
+      currentModalPlaceId = null;
+      assetModalStats.innerHTML = '';
+    }
+
+    assetModalOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function renderModalStats(placeId) {
+    const stats = placeId ? gameStats[placeId] : null;
+    if (stats) {
+      assetModalStats.innerHTML = `
+        <div class="modal-stat">
+          <div class="msval">${formatNumber(stats.visits)}</div>
+          <div class="mslabel">Total Visits</div>
+        </div>
+        <div class="modal-stat">
+          <div class="msval">${formatNumber(stats.playing)}</div>
+          <div class="mslabel">Active Now</div>
+        </div>
+        <div class="modal-stat">
+          <div class="msval" style="font-size:0.78rem;">${formatDate(stats.created)}</div>
+          <div class="mslabel">Created</div>
+        </div>`;
+    } else if (statsFailed) {
+      assetModalStats.innerHTML = `
+        <div class="modal-stat loading"><div class="msval" style="font-size:0.72rem;">Unavailable</div><div class="mslabel">Total Visits</div></div>
+        <div class="modal-stat loading"><div class="msval" style="font-size:0.72rem;">Unavailable</div><div class="mslabel">Active Now</div></div>
+        <div class="modal-stat loading"><div class="msval" style="font-size:0.72rem;">Unavailable</div><div class="mslabel">Created</div></div>`;
+    } else {
+      assetModalStats.innerHTML = `
+        <div class="modal-stat loading"><div class="msval">…</div><div class="mslabel">Total Visits</div></div>
+        <div class="modal-stat loading"><div class="msval">…</div><div class="mslabel">Active Now</div></div>
+        <div class="modal-stat loading"><div class="msval">…</div><div class="mslabel">Created</div></div>`;
+    }
+  }
+
+  function closeAssetModal() {
+    assetModalOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+    currentModalPlaceId = null;
+  }
+
+  assetModalClose.addEventListener('click', closeAssetModal);
+  assetModalOverlay.addEventListener('click', e => {
+    if (e.target === assetModalOverlay) closeAssetModal();
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeAssetModal();
+  });
+
+  /* =====================================================================
+     GAME DATA + STATS — loaded from local JSON files, no live Roblox
+     calls from the browser at all (avoids CORS + Roblox's bot blocking
+     entirely). data/game-stats.json is refreshed periodically by
+     scripts/fetch-roblox-stats.mjs (see .github/workflows for the
+     automated schedule).
+     ===================================================================== */
+  const gameStats = {}; // placeId -> { visits, playing, created }
+  let statsLoaded = false;
+  let statsGeneratedAt = null;
+
+  function extractPlaceId(url) {
+    const match = url.match(/\/games\/(\d+)/);
+    return match ? match[1] : null;
+  }
+
+  function formatNumber(n) {
+    if (n === null || n === undefined || isNaN(n)) return '—';
+    if (n >= 1_000_000_000) return (n / 1_000_000_000).toFixed(2).replace(/\.00$/, '') + 'B';
+    if (n >= 1_000_000) return (n / 1_000_000).toFixed(2).replace(/\.00$/, '') + 'M';
+    if (n >= 1_000) return (n / 1_000).toFixed(1).replace(/\.0$/, '') + 'K';
+    return n.toString();
+  }
+
+  function formatDate(iso) {
+    if (!iso) return '—';
+    const d = new Date(iso);
+    if (isNaN(d.getTime())) return '—';
+    return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+  }
+
+  async function loadGamesAndStats() {
+    try {
+      const games = await (await fetch('data/games.json')).json();
+      gamesTested = games;
+      originalGamesOrder.length = 0;
+      originalGamesOrder.push(...games);
+      renderAssetGrid('games-grid', gamesTested, { showDesc: false, isGame: true });
+
+      const countEl = document.getElementById('games-tested-count');
+      if (countEl) countEl.innerHTML = `Amount of game tested: <strong>${gamesTested.length}</strong>`;
+    } catch (err) {
+      console.error('Could not load data/games.json — is this page being served over http(s), not opened as a local file://? Try `npx serve` or similar.', err);
+      return;
+    }
+
+    try {
+      const payload = await (await fetch('data/game-stats.json')).json();
+      statsGeneratedAt = payload.generatedAt || null;
+      Object.assign(gameStats, payload.stats || {});
+      statsLoaded = true;
+
+      const updatedEl = document.getElementById('stats-updated-label');
+      if (updatedEl && statsGeneratedAt) {
+        const d = new Date(statsGeneratedAt);
+        updatedEl.textContent = `Stats last refreshed: ${d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })} ${d.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}`;
+      }
+    } catch (err) {
+      console.warn('Could not load data/game-stats.json yet — stats will show as unavailable until the first automated run completes.', err);
+    }
+
+    refreshSortButtons();
+    refreshOpenModalIfNeeded();
+  }
+
+  function renderModalStats(placeId) {
+    const stats = placeId ? gameStats[placeId] : null;
+    if (stats) {
+      assetModalStats.innerHTML = `
+        <div class="modal-stat">
+          <div class="msval">${formatNumber(stats.visits)}</div>
+          <div class="mslabel">Total Visits</div>
+        </div>
+        <div class="modal-stat">
+          <div class="msval">${formatNumber(stats.playing)}</div>
+          <div class="mslabel">Active Now</div>
+        </div>
+        <div class="modal-stat">
+          <div class="msval" style="font-size:0.78rem;">${formatDate(stats.created)}</div>
+          <div class="mslabel">Created</div>
+        </div>`;
+    } else if (statsLoaded) {
+      assetModalStats.innerHTML = `
+        <div class="modal-stat loading"><div class="msval" style="font-size:0.72rem;">Unavailable</div><div class="mslabel">Total Visits</div></div>
+        <div class="modal-stat loading"><div class="msval" style="font-size:0.72rem;">Unavailable</div><div class="mslabel">Active Now</div></div>
+        <div class="modal-stat loading"><div class="msval" style="font-size:0.72rem;">Unavailable</div><div class="mslabel">Created</div></div>`;
+    } else {
+      assetModalStats.innerHTML = `
+        <div class="modal-stat loading"><div class="msval">…</div><div class="mslabel">Total Visits</div></div>
+        <div class="modal-stat loading"><div class="msval">…</div><div class="mslabel">Active Now</div></div>
+        <div class="modal-stat loading"><div class="msval">…</div><div class="mslabel">Created</div></div>`;
+    }
+  }
+
+  function refreshOpenModalIfNeeded() {
+    if (currentModalPlaceId && assetModalOverlay.classList.contains('open')) {
+      renderModalStats(currentModalPlaceId);
+    }
+  }
+
+  /* =====================================================================
+     SORTING — "Default" (list order), "Most Successful" (total visits),
+     "Most Popular" (current active players).
+     ===================================================================== */
+  const originalGamesOrder = [];
+  let currentSort = 'default';
+
+  function sortGames(mode) {
+    currentSort = mode;
+    let ordered;
+    if (mode === 'default') {
+      ordered = originalGamesOrder;
+    } else {
+      ordered = [...gamesTested].sort((a, b) => {
+        const pidA = extractPlaceId(a.url), pidB = extractPlaceId(b.url);
+        const valA = gameStats[pidA] ? gameStats[pidA][mode] : -1;
+        const valB = gameStats[pidB] ? gameStats[pidB][mode] : -1;
+        return (valB ?? -1) - (valA ?? -1);
+      });
+    }
+    renderAssetGrid('games-grid', ordered, { showDesc: false, isGame: true });
+    document.querySelectorAll('.sort-btn').forEach(b => b.classList.toggle('active', b.dataset.sort === mode));
+  }
+
+  function refreshSortButtons() {
+    document.querySelectorAll('.sort-btn').forEach(btn => {
+      btn.disabled = !statsLoaded && btn.dataset.sort !== 'default';
+    });
+    if (currentSort !== 'default' && statsLoaded) sortGames(currentSort);
+  }
+
+  document.addEventListener('click', e => {
+    const btn = e.target.closest('.sort-btn');
+    if (btn && !btn.disabled) sortGames(btn.dataset.sort);
+  });
+
+  renderAssetGrid('wiki-grid', wikisContributed, { showDesc: true, linkLabel: 'View on Fandom →' });
+  loadGamesAndStats();
+
+  /* =====================================================================
+     PAGE ROUTING — nav / summary cards / hero CTA all use data-page
+     ===================================================================== */
+  const pages = document.querySelectorAll('.page');
+  const navTriggers = document.querySelectorAll('.nav-links a[data-page]');
+  const allTriggers = document.querySelectorAll('[data-page]');
+
+  function showPage(id) {
+    pages.forEach(p => p.classList.toggle('active', p.id === 'page-' + id));
+    navTriggers.forEach(a => a.classList.toggle('active-link', a.dataset.page === id));
+
+    const activePage = document.getElementById('page-' + id);
+    if (activePage) {
+      const reveals = activePage.querySelectorAll('.reveal');
+      reveals.forEach((el, i) => {
+        el.classList.remove('visible');
+        el.style.transitionDelay = Math.min(i * 0.04, 0.3) + 's';
+      });
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => reveals.forEach(el => el.classList.add('visible')));
+      });
+    }
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    history.replaceState(null, '', '#' + id);
+  }
+
+  allTriggers.forEach(el => {
+    el.addEventListener('click', e => {
+      e.preventDefault();
+      showPage(el.dataset.page);
+    });
+  });
+
+  const startPage = (location.hash || '#home').replace('#', '');
+  showPage(document.getElementById('page-' + startPage) ? startPage : 'home');
+</script>
+</body></html>
