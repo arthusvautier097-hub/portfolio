@@ -678,27 +678,44 @@
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: 8px;
-    padding: 0.65rem 0.4rem;
+    padding: 0.75rem 0.5rem;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 64px;
   }
 
   .modal-stat .msval {
     font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: 1.05rem;
+    font-weight: 700;
+    font-size: 1rem;
     color: var(--accent2);
-    line-height: 1.2;
+    line-height: 1.25;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+
+  .modal-stat .msval-date {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 0.74rem;
+    color: var(--accent2);
+    line-height: 1.35;
+    white-space: normal;
   }
 
   .modal-stat .mslabel {
-    font-size: 0.65rem;
+    font-size: 0.62rem;
     color: var(--muted);
     text-transform: uppercase;
     letter-spacing: 0.04em;
-    margin-top: 0.25rem;
+    margin-top: 0.3rem;
   }
 
-  .modal-stat.loading .msval { color: var(--muted); }
+  .modal-stat.loading .msval,
+  .modal-stat.loading .msval-date { color: var(--muted); font-family: 'DM Sans', sans-serif; font-weight: 500; }
 
   /* ---- SORT CONTROLS (games grid) ---- */
   .sort-controls {
@@ -887,12 +904,12 @@
 <nav>
   <a class="nav-logo" data-page="home">skade92</a>
   <ul class="nav-links">
-    <li><a data-page="home">About</a></li>
-    <li><a data-page="developing">Dev</a></li>
+    <li><a data-page="home">About Me</a></li>
     <li><a data-page="beta">Testing</a></li>
+    <li><a data-page="wiki">Wiki</a></li>
     <li><a data-page="mod">Mod</a></li>
     <li><a data-page="middleman">MM</a></li>
-    <li><a data-page="wiki">Wiki</a></li>
+    <li><a data-page="developing">Dev</a></li>
     <li><a data-page="contact">Contact</a></li>
   </ul>
 </nav>
@@ -1439,35 +1456,6 @@
     document.body.style.overflow = 'hidden';
   }
 
-  function renderModalStats(placeId) {
-    const stats = placeId ? gameStats[placeId] : null;
-    if (stats) {
-      assetModalStats.innerHTML = `
-        <div class="modal-stat">
-          <div class="msval">${formatNumber(stats.visits)}</div>
-          <div class="mslabel">Total Visits</div>
-        </div>
-        <div class="modal-stat">
-          <div class="msval">${formatNumber(stats.playing)}</div>
-          <div class="mslabel">Active Now</div>
-        </div>
-        <div class="modal-stat">
-          <div class="msval" style="font-size:0.78rem;">${formatDate(stats.created)}</div>
-          <div class="mslabel">Created</div>
-        </div>`;
-    } else if (statsFailed) {
-      assetModalStats.innerHTML = `
-        <div class="modal-stat loading"><div class="msval" style="font-size:0.72rem;">Unavailable</div><div class="mslabel">Total Visits</div></div>
-        <div class="modal-stat loading"><div class="msval" style="font-size:0.72rem;">Unavailable</div><div class="mslabel">Active Now</div></div>
-        <div class="modal-stat loading"><div class="msval" style="font-size:0.72rem;">Unavailable</div><div class="mslabel">Created</div></div>`;
-    } else {
-      assetModalStats.innerHTML = `
-        <div class="modal-stat loading"><div class="msval">…</div><div class="mslabel">Total Visits</div></div>
-        <div class="modal-stat loading"><div class="msval">…</div><div class="mslabel">Active Now</div></div>
-        <div class="modal-stat loading"><div class="msval">…</div><div class="mslabel">Created</div></div>`;
-    }
-  }
-
   function closeAssetModal() {
     assetModalOverlay.classList.remove('open');
     document.body.style.overflow = '';
@@ -1560,14 +1548,14 @@
           <div class="mslabel">Active Now</div>
         </div>
         <div class="modal-stat">
-          <div class="msval" style="font-size:0.78rem;">${formatDate(stats.created)}</div>
+          <div class="msval-date">${formatDate(stats.created)}</div>
           <div class="mslabel">Created</div>
         </div>`;
     } else if (statsLoaded) {
       assetModalStats.innerHTML = `
-        <div class="modal-stat loading"><div class="msval" style="font-size:0.72rem;">Unavailable</div><div class="mslabel">Total Visits</div></div>
-        <div class="modal-stat loading"><div class="msval" style="font-size:0.72rem;">Unavailable</div><div class="mslabel">Active Now</div></div>
-        <div class="modal-stat loading"><div class="msval" style="font-size:0.72rem;">Unavailable</div><div class="mslabel">Created</div></div>`;
+        <div class="modal-stat loading"><div class="msval-date">Unavailable</div><div class="mslabel">Total Visits</div></div>
+        <div class="modal-stat loading"><div class="msval-date">Unavailable</div><div class="mslabel">Active Now</div></div>
+        <div class="modal-stat loading"><div class="msval-date">Unavailable</div><div class="mslabel">Created</div></div>`;
     } else {
       assetModalStats.innerHTML = `
         <div class="modal-stat loading"><div class="msval">…</div><div class="mslabel">Total Visits</div></div>
