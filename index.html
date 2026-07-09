@@ -1139,8 +1139,8 @@
       <p class="games-tested-count reveal" id="games-totals-label"></p>
       <div class="sort-controls reveal">
         <span class="sort-label">Sort by:</span>
-        <button class="sort-btn active" data-sort="default">Default</button>
-        <button class="sort-btn" data-sort="visits" disabled>Most Successful (Visits)</button>
+        <button class="sort-btn" data-sort="default">Default</button>
+        <button class="sort-btn active" data-sort="visits" disabled>Most Successful (Visits)</button>
         <button class="sort-btn" data-sort="playing" disabled>Most Popular (Active)</button>
       </div>
       <!--
@@ -1591,7 +1591,7 @@
      "Most Popular" (current active players).
      ===================================================================== */
   const originalGamesOrder = [];
-  let currentSort = 'default';
+  let currentSort = 'visits';
 
   function sortGames(mode) {
     currentSort = mode;

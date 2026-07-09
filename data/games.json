@@ -514,5 +514,11 @@
     "url": "https://www.roblox.com/games/18130504174/Fat-Race",
     "dev": "Habit Games",
     "img": "assets/games/fat-race.png"
+  },
+  {
+    "name": "Hideout",
+    "url": "https://www.roblox.com/games/112080268171774/Hideout",
+    "dev": "pedropit",
+    "img": "assets/games/hideout.png"
   }
 ]
