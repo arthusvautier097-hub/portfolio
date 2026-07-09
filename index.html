@@ -1136,6 +1136,7 @@
       <h3 class="subheading reveal">Games I've Tested</h3>
       <p class="games-tested-count reveal" id="games-tested-count"></p>
       <p class="games-tested-count reveal" id="stats-updated-label" style="font-size:0.72rem;"></p>
+      <p class="games-tested-count reveal" id="games-totals-label"></p>
       <div class="sort-controls reveal">
         <span class="sort-label">Sort by:</span>
         <button class="sort-btn active" data-sort="default">Default</button>
@@ -1526,6 +1527,21 @@
       if (updatedEl && statsGeneratedAt) {
         const d = new Date(statsGeneratedAt);
         updatedEl.textContent = `Stats last refreshed: ${d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })} ${d.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}`;
+      }
+
+      const totalsEl = document.getElementById('games-totals-label');
+      if (totalsEl) {
+        let totalVisits = 0;
+        let totalActive = 0;
+        gamesTested.forEach(g => {
+          const pid = extractPlaceId(g.url);
+          const s = pid ? gameStats[pid] : null;
+          if (s) {
+            totalVisits += s.visits || 0;
+            totalActive += s.playing || 0;
+          }
+        });
+        totalsEl.innerHTML = `Total visits: <strong>${formatNumber(totalVisits)}</strong> &nbsp;·&nbsp; Currently active: <strong>${formatNumber(totalActive)}</strong>`;
       }
     } catch (err) {
       console.warn('Could not load data/game-stats.json yet — stats will show as unavailable until the first automated run completes.', err);
