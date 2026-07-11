@@ -520,5 +520,29 @@
     "url": "https://www.roblox.com/games/112080268171774/Hideout",
     "dev": "pedropit",
     "img": "assets/games/hideout.png"
+  },
+    {
+    "name": "LAST STAND: SAFEHEAVEN",
+    "url": "https://www.roblox.com/games/84998711253961/LAST-STAND-SAFEHAVEN",
+    "dev": "shrekx.",
+    "img": "assets/games/safeheaven.png"
+  },
+    {
+    "name": "Build a Ring Defense",
+    "url": "https://www.roblox.com/games/70701310349879/Build-a-Ring-Defense",
+    "dev": "jayyy7777",
+    "img": "assets/games/build_a_ring_defense.png"
+  },
+    {
+    "name": "Make Jelly",
+    "url": "https://www.roblox.com/games/76024316531370/Make-Jelly",
+    "dev": "._moon_",
+    "img": "assets/games/make_jelly.png" 
+  },
+      {
+    "name": "Infect The Water",
+    "url": "https://www.roblox.com/games/79361196029504/Infect-The-Water",
+    "dev": "jurijbevc.",
+    "img": "assets/games/infect_the_water.png"
   }
 ]

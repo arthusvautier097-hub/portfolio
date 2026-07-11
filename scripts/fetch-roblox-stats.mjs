@@ -38,10 +38,30 @@ function chunkArray(arr, size) {
   return out;
 }
 
-async function fetchJSON(url) {
-  const res = await fetch(url, { headers: BROWSER_HEADERS });
-  if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
-  return res.json();
+async function fetchJSON(url, retries = 3) {
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    const res = await fetch(url, { headers: BROWSER_HEADERS });
+    if (res.status === 429) {
+      // Rate limited — back off and try again instead of giving up.
+      const retryAfter = Number(res.headers.get('retry-after'));
+      const waitMs = retryAfter ? retryAfter * 1000 : 1000 * (attempt + 1);
+      if (attempt < retries) {
+        await new Promise(r => setTimeout(r, waitMs));
+        continue;
+      }
+    }
+    if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
+    return res.json();
+  }
+  throw new Error(`Still rate limited after ${retries} retries: ${url}`);
+}
+
+async function resolveUniverseId(placeId) {
+  // This endpoint has historically stayed public (no auth token required),
+  // unlike the batched multiget-place-details endpoint which Roblox has
+  // started rejecting with HTTP 401.
+  const data = await fetchJSON(`https://apis.roblox.com/universes/v1/places/${placeId}/universe`);
+  return data.universeId;
 }
 
 async function main() {
@@ -50,22 +70,17 @@ async function main() {
 
   console.log(`Fetching stats for ${placeIds.length} games...`);
 
-  // Step 1: resolve universeId for every placeId, batched.
+  // Step 1: resolve universeId for every placeId, one request at a time,
+  // spaced out and with automatic retry-on-429 to stay under rate limits.
   const placeIdToUniverse = {};
-  for (const batch of chunkArray(placeIds, 50)) {
+  for (const pid of placeIds) {
     try {
-      const data = await fetchJSON(
-        `https://games.roblox.com/v1/games/multiget-place-details?placeIds=${batch.join(',')}`
-      );
-      if (!Array.isArray(data)) throw new Error('unexpected shape: ' + JSON.stringify(data).slice(0, 200));
-      data.forEach(p => {
-        placeIdToUniverse[p.placeId] = p.universeId;
-      });
+      const uid = await resolveUniverseId(pid);
+      if (uid) placeIdToUniverse[pid] = uid;
     } catch (err) {
-      console.error('Failed to resolve a batch of universe IDs:', err.message);
+      console.error(`Failed to resolve universe id for place ${pid}:`, err.message);
     }
-    // Be polite / avoid rate limits between batches.
-    await new Promise(r => setTimeout(r, 300));
+    await new Promise(r => setTimeout(r, 400));
   }
 
   // Step 2: fetch visits/actives/created for every universeId, batched.
