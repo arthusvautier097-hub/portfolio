@@ -643,7 +643,6 @@
     align-items: center;
     justify-content: space-between;
     gap: 0.75rem;
-    margin-top: -0.5rem;
     margin-bottom: 1.1rem;
   }
 
@@ -678,6 +677,8 @@
     color: var(--muted);
     margin-bottom: 1.3rem;
   }
+
+  .asset-modal-meta.tight { margin-bottom: 0.25rem; }
 
   .asset-modal-meta strong { color: var(--accent2); font-weight: 600; }
 
@@ -973,7 +974,7 @@
   </div>
 
   <div class="hero-cta">
-    <a data-page="home" class="btn-primary">Discover more ↓</a>
+    <a href="#about" id="discover-more-btn" class="btn-primary">Discover more ↓</a>
   </div>
 </div>
 
@@ -1499,6 +1500,7 @@
       : `<strong>Dev:</strong> ${item.dev ? item.dev : 'add developer name'}`;
 
     const groupName = isGame ? (item.group || item.dev || '') : '';
+    assetModalMeta.classList.toggle('tight', !!groupName);
     if (groupName) {
       assetModalGroupText.innerHTML = `<strong>Group:</strong> ${groupName}`;
       assetModalGroupBtn.style.display = item.groupUrl ? 'inline-block' : 'none';
@@ -1732,6 +1734,15 @@
       showPage(el.dataset.page);
     });
   });
+
+  const discoverMoreBtn = document.getElementById('discover-more-btn');
+  if (discoverMoreBtn) {
+    discoverMoreBtn.addEventListener('click', e => {
+      e.preventDefault();
+      const aboutSection = document.getElementById('about');
+      if (aboutSection) aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
 
   const startPage = (location.hash || '#home').replace('#', '');
   showPage(document.getElementById('page-' + startPage) ? startPage : 'home');
