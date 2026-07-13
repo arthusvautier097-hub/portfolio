@@ -533,6 +533,8 @@
 
   .asset-meta strong { color: var(--accent2); font-weight: 600; }
 
+  .asset-meta.asset-meta-tight { margin-top: -0.45rem; }
+
   .asset-link {
     font-size: 0.74rem;
     font-weight: 600;
@@ -627,25 +629,35 @@
 
   .asset-modal-body { padding: 1.3rem 1.4rem 1.5rem; }
 
-  .asset-modal-name-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.75rem;
-    margin-bottom: 0.5rem;
-  }
-
   .asset-modal-name {
     font-family: 'Syne', sans-serif;
     font-weight: 800;
     font-size: 1.15rem;
     color: var(--text);
+    margin-bottom: 0.5rem;
     line-height: 1.3;
   }
 
+  .asset-modal-group-row {
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-top: -0.5rem;
+    margin-bottom: 1.1rem;
+  }
+
+  .asset-modal-group-row.visible { display: flex; }
+
+  .asset-modal-group-text {
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  .asset-modal-group-text strong { color: var(--accent2); font-weight: 600; }
+
   .asset-modal-group-btn {
     flex-shrink: 0;
-    display: none;
     padding: 0.35rem 0.7rem;
     font-size: 0.7rem;
     font-weight: 600;
@@ -655,8 +667,6 @@
     text-decoration: none;
     transition: background 0.2s, color 0.2s;
   }
-
-  .asset-modal-group-btn.visible { display: inline-block; }
 
   .asset-modal-group-btn:hover {
     background: var(--accent);
@@ -1374,11 +1384,12 @@
     <div class="asset-modal-close" id="asset-modal-close">✕</div>
     <div class="asset-modal-thumb" id="asset-modal-thumb"></div>
     <div class="asset-modal-body">
-      <div class="asset-modal-name-row">
-        <div class="asset-modal-name" id="asset-modal-name"></div>
+      <div class="asset-modal-name" id="asset-modal-name"></div>
+      <div class="asset-modal-meta" id="asset-modal-meta"></div>
+      <div class="asset-modal-group-row" id="asset-modal-group-row">
+        <span class="asset-modal-group-text" id="asset-modal-group-text"></span>
         <a class="asset-modal-group-btn" id="asset-modal-group-btn" href="#" target="_blank" rel="noopener">View group →</a>
       </div>
-      <div class="asset-modal-meta" id="asset-modal-meta"></div>
       <div class="asset-modal-stats" id="asset-modal-stats"></div>
       <a class="asset-modal-btn" id="asset-modal-btn" href="#" target="_blank" rel="noopener">View on Roblox →</a>
     </div>
@@ -1441,7 +1452,7 @@
 
       const groupName = isGame ? (item.group || item.dev || '') : '';
       const groupLine = isGame && groupName
-        ? `<div class="asset-meta"><strong>Group:</strong> ${groupName}</div>`
+        ? `<div class="asset-meta asset-meta-tight"><strong>Group:</strong> ${groupName}</div>`
         : '';
 
       const card = document.createElement('div');
@@ -1466,7 +1477,9 @@
   const assetModalOverlay = document.getElementById('asset-modal-overlay');
   const assetModalThumb   = document.getElementById('asset-modal-thumb');
   const assetModalName    = document.getElementById('asset-modal-name');
-  const assetModalGroupBtn = document.getElementById('asset-modal-group-btn');
+  const assetModalGroupRow  = document.getElementById('asset-modal-group-row');
+  const assetModalGroupText = document.getElementById('asset-modal-group-text');
+  const assetModalGroupBtn  = document.getElementById('asset-modal-group-btn');
   const assetModalMeta    = document.getElementById('asset-modal-meta');
   const assetModalStats   = document.getElementById('asset-modal-stats');
   const assetModalBtn     = document.getElementById('asset-modal-btn');
@@ -1485,11 +1498,14 @@
       ? item.desc
       : `<strong>Dev:</strong> ${item.dev ? item.dev : 'add developer name'}`;
 
-    if (isGame && item.groupUrl) {
-      assetModalGroupBtn.href = item.groupUrl;
-      assetModalGroupBtn.classList.add('visible');
+    const groupName = isGame ? (item.group || item.dev || '') : '';
+    if (groupName) {
+      assetModalGroupText.innerHTML = `<strong>Group:</strong> ${groupName}`;
+      assetModalGroupBtn.style.display = item.groupUrl ? 'inline-block' : 'none';
+      if (item.groupUrl) assetModalGroupBtn.href = item.groupUrl;
+      assetModalGroupRow.classList.add('visible');
     } else {
-      assetModalGroupBtn.classList.remove('visible');
+      assetModalGroupRow.classList.remove('visible');
     }
 
     assetModalBtn.href = item.url;
