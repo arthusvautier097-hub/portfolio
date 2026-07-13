@@ -543,6 +543,24 @@
 
   .asset-card { cursor: pointer; }
 
+  .asset-group-btn {
+    display: inline-block;
+    margin-top: 0.55rem;
+    padding: 0.35rem 0.7rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--text);
+    background: var(--border);
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .asset-group-btn:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+
   /* ---- ASSET MODAL (game/wiki preview popup) ---- */
   .asset-modal-overlay {
     position: fixed;
@@ -1139,9 +1157,10 @@
       <p class="games-tested-count reveal" id="games-totals-label"></p>
       <div class="sort-controls reveal">
         <span class="sort-label">Sort by:</span>
-        <button class="sort-btn" data-sort="default">Default</button>
-        <button class="sort-btn active" data-sort="visits" disabled>Most Successful (Visits)</button>
-        <button class="sort-btn" data-sort="playing" disabled>Most Popular (Active)</button>
+        <button class="sort-btn active" data-sort="visits" disabled>Most Successful</button>
+        <button class="sort-btn" data-sort="playing" disabled>Most Popular</button>
+        <button class="sort-btn" data-sort="alpha">Alphabetical</button>
+        <button class="sort-btn" data-sort="group">By Group</button>
       </div>
       <!--
         This grid is rendered from the `gamesTested` array in the <script> at
@@ -1357,12 +1376,17 @@
 <script>
   /* =====================================================================
      GAMES TESTED — one object per game.
-     - name : game title (required)
-     - url  : link to the Roblox page (required)
-     - dev  : developer / group name (optional, shows as "Dev: ...")
-     - img  : path to a thumbnail image, e.g. "assets/games/my-boba-store.png"
-              (optional — leave empty "" and a colored placeholder with the
-              game's first letter will be used instead until you add a file)
+     - name     : game title (required)
+     - url      : link to the Roblox page (required)
+     - dev      : developer / group name (optional, shows as "Dev: ...")
+     - img      : path to a thumbnail image, e.g. "assets/games/my-boba-store.png"
+                  (optional — leave empty "" and a colored placeholder with the
+                  game's first letter will be used instead until you add a file)
+     - group    : group name shown as "Groupe: ..." on the card (optional,
+                  defaults to `dev` if left empty)
+     - groupUrl : direct link to the group's Roblox page — adds a
+                  "Voir le groupe →" button on the card (optional, leave
+                  empty "" to hide the button)
      ===================================================================== */
   /* GAMES TESTED — loaded from data/games.json (see that file to add/edit
      a game: name, url, dev, img). Kept external so the Node script that
@@ -1403,6 +1427,14 @@
         ? item.desc
         : `<strong>Dev:</strong> ${item.dev ? item.dev : 'add developer name'}`;
 
+      const groupName = isGame ? (item.group || item.dev || '') : '';
+      const groupLine = isGame && groupName
+        ? `<div class="asset-meta"><strong>Groupe:</strong> ${groupName}</div>`
+        : '';
+      const groupBtn = isGame && item.groupUrl
+        ? `<a class="asset-group-btn" href="${item.groupUrl}" target="_blank" rel="noopener">Voir le groupe →</a>`
+        : '';
+
       const card = document.createElement('div');
       card.className = 'asset-card reveal visible';
       card.innerHTML = `
@@ -1410,10 +1442,14 @@
         <div class="asset-info">
           <div class="asset-name">${item.name}</div>
           <div class="asset-meta">${meta}</div>
+          ${groupLine}
           <div class="asset-link">${linkLabel}</div>
+          ${groupBtn}
         </div>`;
 
       card.addEventListener('click', () => openAssetModal(item, { showDesc, gradient, letter, linkLabel, isGame }));
+      const groupBtnEl = card.querySelector('.asset-group-btn');
+      if (groupBtnEl) groupBtnEl.addEventListener('click', e => e.stopPropagation());
       container.appendChild(card);
     });
   }
@@ -1587,8 +1623,9 @@
   }
 
   /* =====================================================================
-     SORTING — "Default" (list order), "Most Successful" (total visits),
-     "Most Popular" (current active players).
+     SORTING — "Most Successful" (total visits), "Most Popular" (current
+     active players), "Alphabetical" (by game name), "By Group" (by
+     group name, alphabetically).
      ===================================================================== */
   const originalGamesOrder = [];
   let currentSort = 'visits';
@@ -1596,8 +1633,14 @@
   function sortGames(mode) {
     currentSort = mode;
     let ordered;
-    if (mode === 'default') {
-      ordered = originalGamesOrder;
+    if (mode === 'alpha') {
+      ordered = [...gamesTested].sort((a, b) => a.name.localeCompare(b.name));
+    } else if (mode === 'group') {
+      ordered = [...gamesTested].sort((a, b) => {
+        const groupA = (a.group || a.dev || '').toLowerCase();
+        const groupB = (b.group || b.dev || '').toLowerCase();
+        return groupA.localeCompare(groupB) || a.name.localeCompare(b.name);
+      });
     } else {
       ordered = [...gamesTested].sort((a, b) => {
         const pidA = extractPlaceId(a.url), pidB = extractPlaceId(b.url);
@@ -1612,9 +1655,10 @@
 
   function refreshSortButtons() {
     document.querySelectorAll('.sort-btn').forEach(btn => {
-      btn.disabled = !statsLoaded && btn.dataset.sort !== 'default';
+      const needsStats = btn.dataset.sort === 'visits' || btn.dataset.sort === 'playing';
+      btn.disabled = needsStats && !statsLoaded;
     });
-    if (currentSort !== 'default' && statsLoaded) sortGames(currentSort);
+    if (statsLoaded || currentSort === 'alpha' || currentSort === 'group') sortGames(currentSort);
   }
 
   document.addEventListener('click', e => {

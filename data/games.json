@@ -3,546 +3,760 @@
     "name": "Punch Simulator",
     "url": "https://www.roblox.com/games/14236123211/Punch-Simulator",
     "dev": "Habit Games",
-    "img": "assets/games/punch-simulator.png"
+    "img": "assets/games/punch-simulator.png",
+    "group": "Habit Games",
+    "groupUrl": "https://www.roblox.com/communities/12860813/Habit-Games#!/about"
   },
   {
-    "name": "1 Aura Per Click",
+    "name": "+1 Aura Per Click",
     "url": "https://www.roblox.com/games/109509029034984/1-Aura-Per-Click",
     "dev": ".nukhu.",
-    "img": "assets/games/1-aura-per-click.png"
+    "img": "assets/games/1-aura-per-click.png",
+    "group": "Aura Software",
+    "groupUrl": "https://www.roblox.com/communities/988942002/Aura-Software#!/about"
   },
   {
-    "name": "1 Slime Dev Branch",
+    "name": "+1 Slime Dev Branch",
     "url": "https://www.roblox.com/games/96947338677734/1-Speed-Slime-Keyboard-Escape",
     "dev": "xma_hdi",
-    "img": "assets/games/1-slime-dev-branch.png"
+    "img": "assets/games/1-slime-dev-branch.png",
+    "group": "Cherry Red Chariot",
+    "groupUrl": "https://www.roblox.com/communities/34842200/Cherry-Red-Chariot#!/about"
   },
   {
     "name": "Own a Pizza Tycoon",
     "url": "https://www.roblox.com/games/123318668892923/Own-a-Pizza-Tycoon",
     "dev": "danieldice",
-    "img": "assets/games/own-a-pizza-tycoon.png"
+    "img": "assets/games/own-a-pizza-tycoon.png",
+    "group": "Monkey Red Studio",
+    "groupUrl": "https://www.roblox.com/communities/34490561/Monkey-Red-Studio#!/about"
   },
   {
     "name": "Camo Or OOF!",
     "url": "https://www.roblox.com/games/74511210941284/Camo-Or-OOF",
     "dev": "gdnoxic_onyt",
-    "img": "assets/games/camo-or-oof.png"
+    "img": "assets/games/camo-or-oof.png",
+    "group": "100 CCU PLEASE",
+    "groupUrl": "https://www.roblox.com/communities/127465947/100-CCU-PLEASE#!/about"
   },
   {
     "name": "Camo Or Snipe!",
     "url": "https://www.roblox.com/games/125700405216363/Camo-Or-Snipe",
     "dev": "b.lazedev",
-    "img": "assets/games/camo-or-snipe.png"
+    "img": "assets/games/camo-or-snipe.png",
+    "group": "Camouflage INC",
+    "groupUrl": "https://www.roblox.com/communities/707277301/Camouflage-INC#!/about"
   },
   {
     "name": "Unbox a Factory",
     "url": "https://www.roblox.com/games/138161219313147/Unbox-a-Factory",
     "dev": "Habit Games",
-    "img": "assets/games/unbox-a-factory.png"
+    "img": "assets/games/unbox-a-factory.png",
+    "group": "Habit Games",
+    "groupUrl": "https://www.roblox.com/communities/12860813/Habit-Games#!/about"
   },
   {
     "name": "Monkey Soccer",
     "url": "https://www.roblox.com/games/121217335069513/Monkey-Soccer",
     "dev": "kingbuzzy",
-    "img": "assets/games/monkey-soccer.png"
+    "img": "assets/games/monkey-soccer.png",
+    "group": "Goody Foody",
+    "groupUrl": "https://www.roblox.com/communities/35758741/Goody-Foody#!/about"
   },
   {
     "name": "Gym Showdown Simulator",
     "url": "https://www.roblox.com/games/101237818732976/Gym-Showdown-Simulator",
     "dev": "Habit Games",
-    "img": "assets/games/gym-showdown-simulator.png"
+    "img": "assets/games/gym-showdown-simulator.png",
+    "group": "Habit Games",
+    "groupUrl": "https://www.roblox.com/communities/12860813/Habit-Games#!/about"
   },
   {
     "name": "My Boba Store",
     "url": "https://www.roblox.com/games/82338394608938/My-Boba-Store",
     "dev": "Habit Games",
-    "img": "assets/games/my-boba-store.png"
+    "img": "assets/games/my-boba-store.png",
+    "group": "Habit Games",
+    "groupUrl": "https://www.roblox.com/communities/12860813/Habit-Games#!/about"
   },
   {
     "name": "My Boba Stand",
     "url": "https://www.roblox.com/games/136723874788185/My-Boba-Stand",
     "dev": "Habit Games",
-    "img": "assets/games/my-boba-stand.png"
+    "img": "assets/games/my-boba-stand.png",
+    "group": "Habit Games",
+    "groupUrl": "https://www.roblox.com/communities/12860813/Habit-Games#!/about"
   },
   {
     "name": "Level Your Weapon",
     "url": "https://www.roblox.com/games/131372854229024/Level-Your-Weapon",
     "dev": "Habit Games",
-    "img": "assets/games/level-your-weapon.png"
+    "img": "assets/games/level-your-weapon.png",
+    "group": "Habit Games",
+    "groupUrl": "https://www.roblox.com/communities/12860813/Habit-Games#!/about"
   },
   {
     "name": "Gym Race Simulator",
     "url": "https://www.roblox.com/games/18767261433/Gym-Race-Simulator",
     "dev": "Habit Games",
-    "img": "assets/games/gym-race-simulator.png"
+    "img": "assets/games/gym-race-simulator.png",
+    "group": "Habit Games",
+    "groupUrl": "https://www.roblox.com/communities/12860813/Habit-Games#!/about"
   },
   {
     "name": "Merge Plants Vs Zombies",
     "url": "https://roblox.com/games/111996161342573/Merge-Plants-vs-Zombies",
     "dev": "gabosons",
-    "img": "assets/games/merge-plants-vs-zombies.png"
+    "img": "assets/games/merge-plants-vs-zombies.png",
+    "group": "cooking Game",
+    "groupUrl": "https://www.roblox.com/communities/35850353/cooking-game#!/about"
   },
   {
     "name": "TRADE or keep",
     "url": "https://www.roblox.com/games/104362292485763/TRADE-or-Keep",
     "dev": "aarush6",
-    "img": "assets/games/trade-or-keep.png"
+    "img": "assets/games/trade-or-keep.png",
+    "group": "Trade or Keep SQUISHIES",
+    "groupUrl": "https://www.roblox.com/communities/272691223/Trade-or-Keep-SQUISHIES#!/about"
   },
   {
     "name": "Princess Tycoon",
     "url": "https://www.roblox.com/games/108994823281421/Superstar-Mansion-Tycoon-by-Like-Nastya",
     "dev": "Habit Games",
-    "img": "assets/games/princess-tycoon.png"
+    "img": "assets/games/princess-tycoon.png",
+    "group": "Habit Games",
+    "groupUrl": "https://www.roblox.com/communities/12860813/Habit-Games#!/about"
   },
   {
     "name": "Climb the Brainrot Base",
     "url": "https://www.roblox.com/games/114710767911422/Climb-The-Brainrot-Base",
     "dev": "realslurv",
-    "img": "assets/games/climb-the-brainrot-base.png"
+    "img": "assets/games/climb-the-brainrot-base.png",
+    "group": "GRAB AND RUN",
+    "groupUrl": "https://www.roblox.com/communities/917059614/GRAB-AND-RUN#!/about"
   },
   {
     "name": "Unbox a Boba Stand",
     "url": "https://www.roblox.com/games/76250497213806/Unbox-a-Boba-Stand",
     "dev": "Habit Games",
-    "img": "assets/games/unbox-a-boba-stand.png"
+    "img": "assets/games/unbox-a-boba-stand.png",
+    "group": "Habit Games",
+    "groupUrl": "https://www.roblox.com/communities/12860813/Habit-Games#!/about"
   },
   {
     "name": "Gym Training",
     "url": "https://www.roblox.com/games/108264999407756/Gym-Training",
     "dev": "Habit Games",
-    "img": "assets/games/gym-training.png"
+    "img": "assets/games/gym-training.png",
+    "group": "Habit Games",
+    "groupUrl": "https://www.roblox.com/communities/12860813/Habit-Games#!/about"
   },
   {
     "name": "LA Rideout",
     "url": "https://www.roblox.com/games/110100139915012/LA-Rideout-Beta",
     "dev": "xyrx_fr",
-    "img": "assets/games/la-rideout.png"
+    "img": "assets/games/la-rideout.png",
+    "group": "xyrx_fr",
+    "groupUrl": ""
   },
   {
     "name": "Get hit by a TRUCK",
     "url": "https://www.roblox.com/games/92566878532403/Get-hit-by-a-TRUCK",
     "dev": "inversepart",
-    "img": "assets/games/get-hit-by-a-truck.png"
+    "img": "assets/games/get-hit-by-a-truck.png",
+    "group": "LA Rideout",
+    "groupUrl": "https://www.roblox.com/communities/240389598/LA-Rideout#!/about"
   },
   {
     "name": "Fat Training",
     "url": "https://www.roblox.com/games/82293894595394/Fat-Training",
     "dev": "Habit Games",
-    "img": "assets/games/fat-training.png"
+    "img": "assets/games/fat-training.png",
+    "group": "Habit Games",
+    "groupUrl": "https://www.roblox.com/communities/12860813/Habit-Games#!/about"
   },
   {
     "name": "My Tank Farm",
     "url": "https://www.roblox.com/games/84512763896655/My-Tank-Farm",
     "dev": "Habit Games",
-    "img": "assets/games/my-tank-farm.png"
+    "img": "assets/games/my-tank-farm.png",
+    "group": "Habit Games",
+    "groupUrl": "https://www.roblox.com/communities/12860813/Habit-Games#!/about"
   },
   {
     "name": "Unbox Your Tank",
     "url": "https://www.roblox.com/games/135707546762730/Unbox-Your-Tank",
     "dev": "Habit Games",
-    "img": "assets/games/unbox-your-tank.png"
+    "img": "assets/games/unbox-your-tank.png",
+    "group": "Habit Games",
+    "groupUrl": "https://www.roblox.com/communities/12860813/Habit-Games#!/about"
   },
   {
     "name": "Farmer Simulator",
     "url": "https://www.roblox.com/games/15234998219/Farmer-Simulator",
     "dev": "Habit Games",
-    "img": "assets/games/farmer-simulator.png"
+    "img": "assets/games/farmer-simulator.png",
+    "group": "Habit Games",
+    "groupUrl": "https://www.roblox.com/communities/12860813/Habit-Games#!/about"
   },
   {
     "name": "Brainrot Training",
     "url": "https://www.roblox.com/games/93988914186794/Brainrot-Training",
     "dev": "Habit Games",
-    "img": "assets/games/brainrot-training.png"
+    "img": "assets/games/brainrot-training.png",
+    "group": "Habit Games",
+    "groupUrl": "https://www.roblox.com/communities/12860813/Habit-Games#!/about"
   },
   {
     "name": "Brainrot Training X",
     "url": "https://www.roblox.com/games/124942503684833/Brainrot-Training-X",
     "dev": "Habit Games",
-    "img": "assets/games/brainrot-training-x.png"
+    "img": "assets/games/brainrot-training-x.png",
+    "group": "Habit Games",
+    "groupUrl": "https://www.roblox.com/communities/12860813/Habit-Games#!/about"
   },
   {
     "name": "Hacker Showdown Simulator",
     "url": "https://www.roblox.com/games/74176548556660/Hacker-Showdown-Simulator",
     "dev": "Habit Games",
-    "img": "assets/games/hacker-showdown-simulator.png"
+    "img": "assets/games/hacker-showdown-simulator.png",
+    "group": "Habit Games",
+    "groupUrl": "https://www.roblox.com/communities/12860813/Habit-Games#!/about"
   },
   {
     "name": "Run A Black Market",
     "url": "https://www.roblox.com/games/106656026556805/Run-a-Black-Market",
     "dev": "theinventorofobjects",
-    "img": "assets/games/run-a-black-market.png"
+    "img": "assets/games/run-a-black-market.png",
+    "group": "on sum chill",
+    "groupUrl": "https://www.roblox.com/communities/35173015/on-sum-chill#!/about"
   },
   {
     "name": "Princess Palace Tycoon",
     "url": "https://www.roblox.com/games/85163385731998/Princess-Palace-Tycoon",
     "dev": "Habit Games",
-    "img": "assets/games/princess-palace-tycoon.png"
+    "img": "assets/games/princess-palace-tycoon.png",
+    "group": "Habit Games",
+    "groupUrl": "https://www.roblox.com/communities/12860813/Habit-Games#!/about"
   },
   {
     "name": "Catch a Fish Simulator",
     "url": "https://www.roblox.com/games/16722784102/Catch-a-Fish-Simulator",
     "dev": "Habit Games",
-    "img": "assets/games/catch-a-fish-simulator.png"
+    "img": "assets/games/catch-a-fish-simulator.png",
+    "group": "Habit Games",
+    "groupUrl": "https://www.roblox.com/communities/12860813/Habit-Games#!/about"
   },
   {
     "name": "Pet Training Simulator",
     "url": "https://www.roblox.com/games/15445888182/Pet-Training-Simulator",
     "dev": "Habit Games",
-    "img": "assets/games/pet-training-simulator.png"
+    "img": "assets/games/pet-training-simulator.png",
+    "group": "Habit Games",
+    "groupUrl": "https://www.roblox.com/communities/12860813/Habit-Games#!/about"
   },
   {
     "name": "Gym Training X",
     "url": "https://www.roblox.com/games/119583587549416/Gym-Training-X",
     "dev": "Habit Games",
-    "img": "assets/games/gym-training-x.png"
+    "img": "assets/games/gym-training-x.png",
+    "group": "Habit Games",
+    "groupUrl": "https://www.roblox.com/communities/12860813/Habit-Games#!/about"
   },
   {
     "name": "Eat Everyone Simulator",
     "url": "https://www.roblox.com/games/17327880884/Eat-Everyone-Simulator",
     "dev": "Habit Games",
-    "img": "assets/games/eat-everyone-simulator.png"
+    "img": "assets/games/eat-everyone-simulator.png",
+    "group": "Habit Games",
+    "groupUrl": "https://www.roblox.com/communities/12860813/Habit-Games#!/about"
   },
   {
     "name": "Tank Training",
     "url": "https://www.roblox.com/games/91986852011820/Tank-Training",
     "dev": "Habit Games",
-    "img": "assets/games/tank-training.png"
+    "img": "assets/games/tank-training.png",
+    "group": "Habit Games",
+    "groupUrl": "https://www.roblox.com/communities/12860813/Habit-Games#!/about"
   },
   {
     "name": "Into the Backrooms TD",
     "url": "https://www.roblox.com/games/123446017566246/Into-the-Backrooms-TD",
     "dev": "inversepart",
-    "img": "assets/games/into-the-backrooms-td.png"
+    "img": "assets/games/into-the-backrooms-td.png",
+    "group": "Backrooms Tower Defense",
+    "groupUrl": "https://www.roblox.com/communities/1071092126/Backrooms-Tower-Defense#!/about"
   },
   {
     "name": "Murder Game 3",
     "url": "https://www.roblox.com/games/82404745457132/Murder-Game-3",
     "dev": "halfy",
-    "img": "assets/games/murder-game-3.png"
+    "img": "assets/games/murder-game-3.png",
+    "group": "HalfY",
+    "groupUrl": "https://www.roblox.com/communities/784402860/HalfY#!/about"
   },
   {
     "name": "Brainrot Simulator",
     "url": "https://www.roblox.com/games/110140945302716/Brainrot-Simulator",
     "dev": "Habit Games",
-    "img": "assets/games/brainrot-simulator.png"
+    "img": "assets/games/brainrot-simulator.png",
+    "group": "Habit Games",
+    "groupUrl": "https://www.roblox.com/communities/12860813/Habit-Games#!/about"
   },
   {
     "name": "FAT Simulator",
     "url": "https://www.roblox.com/games/8851519587/FAT-Simulator",
     "dev": "Habit Games",
-    "img": "assets/games/fat-simulator.png"
+    "img": "assets/games/fat-simulator.png",
+    "group": "Habit Games",
+    "groupUrl": "https://www.roblox.com/communities/12860813/Habit-Games#!/about"
   },
   {
     "name": "Fight a Slime",
     "url": "https://www.roblox.com/games/88960932513725/Fight-a-Slime",
     "dev": ".iamneil",
-    "img": "assets/games/fight-a-slime.png"
+    "img": "assets/games/fight-a-slime.png",
+    "group": "JMJ Aim X Neil",
+    "groupUrl": "https://www.roblox.com/communities/364194745/JMJ-Aim-X-Neil#!/about"
   },
   {
     "name": "Brainrot Fishing",
     "url": "https://www.roblox.com/games/95635663201910/Brainrot-Fishing",
     "dev": "Habit Games",
-    "img": "assets/games/brainrot-fishing.png"
+    "img": "assets/games/brainrot-fishing.png",
+    "group": "Habit Games",
+    "groupUrl": "https://www.roblox.com/communities/12860813/Habit-Games#!/about"
   },
   {
     "name": "Dino Dig",
     "url": "https://roblox.com/games/80659322962641/Dino-Dig",
     "dev": "Habit Games",
-    "img": "assets/games/dino-dig.png"
+    "img": "assets/games/dino-dig.png",
+    "group": "Habit Games",
+    "groupUrl": "https://www.roblox.com/communities/12860813/Habit-Games#!/about"
   },
   {
     "name": "Fat Showdown Simulator",
     "url": "https://www.roblox.com/games/138493013273833/Fat-Showdown-Simulator",
     "dev": "Habit Games",
-    "img": "assets/games/fat-showdown-simulator.png"
+    "img": "assets/games/fat-showdown-simulator.png",
+    "group": "Habit Games",
+    "groupUrl": "https://www.roblox.com/communities/12860813/Habit-Games#!/about"
   },
   {
     "name": "Big Fish Simulator",
     "url": "https://www.roblox.com/games/18889420065/Big-Fish-Simulator",
     "dev": "Habit Games",
-    "img": "assets/games/big-fish-simulator.png"
+    "img": "assets/games/big-fish-simulator.png",
+    "group": "Habit Games",
+    "groupUrl": "https://www.roblox.com/communities/12860813/Habit-Games#!/about"
   },
   {
     "name": "Tank RNG",
     "url": "https://www.roblox.com/games/86269990981198/Tank-RNG",
     "dev": "Habit Games",
-    "img": "assets/games/tank-rng.png"
+    "img": "assets/games/tank-rng.png",
+    "group": "Habit Games",
+    "groupUrl": "https://www.roblox.com/communities/12860813/Habit-Games#!/about"
   },
   {
     "name": "Punch Brainrots",
     "url": "https://www.roblox.com/games/101578669319913/Punch-Brainrots",
     "dev": "Habit Games",
-    "img": "assets/games/punch-brainrots.png"
+    "img": "assets/games/punch-brainrots.png",
+    "group": "Habit Games",
+    "groupUrl": "https://www.roblox.com/communities/12860813/Habit-Games#!/about"
   },
   {
     "name": "Boba Stand Unboxing",
     "url": "https://www.roblox.com/games/103485016129849/Boba-Stand-Unboxing",
     "dev": "Habit Games",
-    "img": "assets/games/boba-stand-unboxing.png"
+    "img": "assets/games/boba-stand-unboxing.png",
+    "group": "Habit Games",
+    "groupUrl": "https://www.roblox.com/communities/12860813/Habit-Games#!/about"
   },
   {
     "name": "Unbox a Brainrot Shop",
     "url": "https://www.roblox.com/games/123571290918498/Unbox-a-Brainrot-Shop",
     "dev": "Habit Games",
-    "img": "assets/games/unbox-a-brainrot-shop.png"
+    "img": "assets/games/unbox-a-brainrot-shop.png",
+    "group": "Habit Games",
+    "groupUrl": "https://www.roblox.com/communities/12860813/Habit-Games#!/about"
   },
   {
     "name": "Dumpling Drop",
     "url": "https://www.roblox.com/games/113768144993878/Dumpling-Drop",
     "dev": "danielatoz",
-    "img": "assets/games/dumpling-drop.png"
+    "img": "assets/games/dumpling-drop.png",
+    "group": "Funhouse Emporium",
+    "groupUrl": "https://www.roblox.com/communities/730342040/Funhouse-Emporium#!/about"
   },
   {
     "name": "Fish a Anime",
     "url": "https://www.roblox.com/games/124172644763532/Fish-a-Anime",
     "dev": "Habit Games",
-    "img": "assets/games/fish-a-anime.png"
+    "img": "assets/games/fish-a-anime.png",
+    "group": "Habit Games",
+    "groupUrl": "https://www.roblox.com/communities/12860813/Habit-Games#!/about"
   },
   {
     "name": "My Factory",
     "url": "https://www.roblox.com/games/84714424509861/My-Factory",
     "dev": "Habit Games",
-    "img": "assets/games/my-factory.png"
+    "img": "assets/games/my-factory.png",
+    "group": "Habit Games",
+    "groupUrl": "https://www.roblox.com/communities/12860813/Habit-Games#!/about"
   },
   {
     "name": "Eat a Brainrot",
     "url": "https://www.roblox.com/games/136004659625626/Eat-a-Brainrot",
     "dev": "Habit Games",
-    "img": "assets/games/eat-a-brainrot.png"
+    "img": "assets/games/eat-a-brainrot.png",
+    "group": "Habit Games",
+    "groupUrl": "https://www.roblox.com/communities/12860813/Habit-Games#!/about"
   },
   {
     "name": "Slash Arena",
     "url": "https://www.roblox.com/games/121799219960767/Slash-Arena",
     "dev": "legendprime2290",
-    "img": "assets/games/slash-arena.png"
+    "img": "assets/games/slash-arena.png",
+    "group": "Something Fun Games",
+    "groupUrl": "https://www.roblox.com/communities/495366507/Something-Fun-Games#!/about"
   },
   {
     "name": "Toilet Punch Simulator",
     "url": "https://www.roblox.com/games/16060879782/NEW-Toilet-Punch-Simulator",
     "dev": "Habit Games",
-    "img": "assets/games/toilet-punch-simulator.png"
+    "img": "assets/games/toilet-punch-simulator.png",
+    "group": "Habit Games",
+    "groupUrl": "https://www.roblox.com/communities/12860813/Habit-Games#!/about"
   },
   {
     "name": "Build a Mukbang",
     "url": "https://www.roblox.com/games/118065750558002/Build-a-Mukbang",
     "dev": "gabosons",
-    "img": "assets/games/build-a-mukbang.png"
+    "img": "assets/games/build-a-mukbang.png",
+    "group": "Build a Mukbang",
+    "groupUrl": "https://www.roblox.com/games/118065750558002/Build-a-Mukbang"
   },
   {
     "name": "Anime Apex",
     "url": "https://www.roblox.com/games/125661369726244/Anime-Apex",
     "dev": "Habit Games",
-    "img": "assets/games/anime-apex.png"
+    "img": "assets/games/anime-apex.png",
+    "group": "Habit Games",
+    "groupUrl": "https://www.roblox.com/communities/12860813/Habit-Games#!/about"
   },
   {
     "name": "Become a Scammer",
     "url": "https://www.roblox.com/games/80315788625581/Become-a-Scammer",
     "dev": "zriptic",
-    "img": "assets/games/become-a-scammer.png"
+    "img": "assets/games/become-a-scammer.png",
+    "group": "Debt Machine",
+    "groupUrl": "https://www.roblox.com/communities/32946892/Debt-Machine#!/about"
   },
   {
     "name": "Punch a Brainrot",
     "url": "https://www.roblox.com/games/116878418741053/Punch-a-Brainrot",
     "dev": "Habit Games",
-    "img": "assets/games/punch-a-brainrot.png"
+    "img": "assets/games/punch-a-brainrot.png",
+    "group": "Habit Games",
+    "groupUrl": "https://www.roblox.com/communities/12860813/Habit-Games#!/about"
   },
   {
     "name": "Unbox a Tank",
     "url": "https://www.roblox.com/games/102015201029580/Unbox-a-Tank",
     "dev": "Habit Games",
-    "img": "assets/games/unbox-a-tank.png"
+    "img": "assets/games/unbox-a-tank.png",
+    "group": "Habit Games",
+    "groupUrl": "https://www.roblox.com/communities/12860813/Habit-Games#!/about"
   },
   {
     "name": "Tank Racer",
     "url": "https://www.roblox.com/games/18544840205/Tank-Racer",
     "dev": "Habit Games",
-    "img": "assets/games/tank-racer.png"
+    "img": "assets/games/tank-racer.png",
+    "group": "Habit Games",
+    "groupUrl": "https://www.roblox.com/communities/12860813/Habit-Games#!/about"
   },
   {
     "name": "Merge Luckyblocks",
     "url": "https://www.roblox.com/games/103620165045362/Merge-Luckyblocks",
     "dev": "naitodev",
-    "img": "assets/games/merge-luckyblocks.png"
+    "img": "assets/games/merge-luckyblocks.png",
+    "group": "47 GAMES",
+    "groupUrl": "https://www.roblox.com/communities/14851651/47-GAMES#!/about"
   },
   {
     "name": "Alien Invasion",
     "url": "https://roblox.com/games/128187097895795/Alien-Invasion",
     "dev": "inversepart",
-    "img": "assets/games/alien-invasion.png"
+    "img": "assets/games/alien-invasion.png",
+    "group": "Aliens Lab",
+    "groupUrl": "https://www.roblox.com/communities/566678979/Aliens-Lab#!/about"
   },
   {
     "name": "Soccer Duels",
     "url": "https://www.roblox.com/games/136316557349494/Soccer-Duels",
     "dev": "gabosons",
-    "img": "assets/games/soccer-duels.png"
+    "img": "assets/games/soccer-duels.png",
+    "group": "Crazay Cooks",
+    "groupUrl": "https://www.roblox.com/communities/467633350/Crazay-Cooks#!/about"
   },
   {
     "name": "Biggest Word Wins",
     "url": "https://www.roblox.com/games/95413092530244/Biggest-Word-WINS",
     "dev": "receivedbackup",
-    "img": "assets/games/biggest-word-wins.png"
+    "img": "assets/games/biggest-word-wins.png",
+    "group": "Received Creations",
+    "groupUrl": "https://www.roblox.com/communities/652874104/Received-Creations#!/about"
   },
   {
     "name": "Catalog Fashion Show",
     "url": "https://www.roblox.com/games/83836697526815/Catalog-Fashion-Show",
     "dev": "lightning_3d",
-    "img": "assets/games/catalog-fashion-show.png"
+    "img": "assets/games/catalog-fashion-show.png",
+    "group": "Catalog Fashion Show",
+    "groupUrl": "https://www.roblox.com/games/83836697526815/Catalog-Fashion-Show"
   },
   {
     "name": "Snow Mover Simulator",
     "url": "https://www.roblox.com/games/120855726347432/Snow-Movers",
     "dev": "dylann2999",
-    "img": "assets/games/snow-mover-simulator.png"
+    "img": "assets/games/snow-mover-simulator.png",
+    "group": "PolarStorm",
+    "groupUrl": "https://www.roblox.com/communities/246865009/PolarStorm#!/about"
   },
   {
     "name": "Catch and Craft!",
     "url": "https://www.roblox.com/games/76764205789199/Catch-and-Craft",
     "dev": "chrisrwarman",
-    "img": "assets/games/catch-and-craft.png"
+    "img": "assets/games/catch-and-craft.png",
+    "group": "BBS II",
+    "groupUrl": "https://www.roblox.com/communities/316226452/BBS-II#!/about"
   },
   {
     "name": "Fruit Basket",
     "url": "https://www.roblox.com/games/94415725482909/Fruit-Basket",
     "dev": "armodilo_183",
-    "img": "assets/games/fruit-basket.png"
+    "img": "assets/games/fruit-basket.png",
+    "group": "DeveloperAkunDisco",
+    "groupUrl": "https://www.roblox.com/users/10692279235/profile/"
   },
   {
     "name": "Race a Car",
     "url": "https://www.roblox.com/games/132841921304197/Race-a-Car",
     "dev": "Habit Games",
-    "img": "assets/games/race-a-car.png"
+    "img": "assets/games/race-a-car.png",
+    "group": "Habit Games",
+    "groupUrl": "https://www.roblox.com/communities/12860813/Habit-Games#!/about"
   },
   {
     "name": "Dumpling Farm",
     "url": "https://www.roblox.com/games/133511556363377/Dumpling-Farm",
     "dev": "kairodevs",
-    "img": "assets/games/dumpling-farm.png"
+    "img": "assets/games/dumpling-farm.png",
+    "group": "Games about Dumplings",
+    "groupUrl": "https://www.roblox.com/communities/388142528/Games-about-Dumplings#!/about"
   },
   {
     "name": "Fight For Brainrot",
     "url": "https://www.roblox.com/games/113074596291053/Fight-for-Brainrots",
     "dev": "sears1932",
-    "img": "assets/games/fight-for-brainrot.png"
+    "img": "assets/games/fight-for-brainrot.png",
+    "group": "Cevtren Studios",
+    "groupUrl": "https://www.roblox.com/communities/761910/Cevtren-Studios#!/about"
   },
   {
     "name": "Build a Raft For Brainrots",
     "url": "https://www.roblox.com/games/133713332002380/Build-a-Raft-For-Brainrots",
     "dev": "huirzv",
-    "img": "assets/games/build-a-raft-for-brainrots.png"
+    "img": "assets/games/build-a-raft-for-brainrots.png",
+    "group": "670 CCU GAMES",
+    "groupUrl": "https://www.roblox.com/communities/1000910109/670-CCU-GAMES#!/about"
   },
   {
     "name": "Fill the Truck",
     "url": "https://www.roblox.com/games/133540524607328/Fill-the-Truck",
     "dev": "bigometer",
-    "img": "assets/games/fill-the-truck.png"
+    "img": "assets/games/fill-the-truck.png",
+    "group": "N/A",
+    "groupUrl": ""
   },
   {
     "name": "Cut Them Free!",
     "url": "https://www.roblox.com/games/83008547122513/Cut-Them-Free",
     "dev": "deezis",
-    "img": "assets/games/cut-them-free.png"
+    "img": "assets/games/cut-them-free.png",
+    "group": "Gutsy Studio",
+    "groupUrl": "https://www.roblox.com/communities/582693750/Gutsy-Studio#!/about"
   },
   {
     "name": "Plane Empire",
     "url": "https://www.roblox.com/games/86684021693551/Plane-Empire",
     "dev": "velliua",
-    "img": "assets/games/plane-empire.png"
+    "img": "assets/games/plane-empire.png",
+    "group": "JJetta",
+    "groupUrl": "https://www.roblox.com/users/8019543437/profile/"
   },
   {
     "name": "Mine It",
     "url": "https://www.roblox.com/games/114994510039413/Mine-It-Test",
     "dev": "galvagni",
-    "img": "assets/games/mine-it.png"
+    "img": "assets/games/mine-it.png",
+    "group": "N/A",
+    "groupUrl": ""
   },
   {
     "name": "KO'D",
     "url": "https://www.roblox.com/games/91603307704803/KOD",
     "dev": "ayaivy",
-    "img": "assets/games/ko-d.png"
+    "img": "assets/games/ko-d.png",
+    "group": "LunarVoid",
+    "groupUrl": "https://www.roblox.com/communities/35066726/LunarVoid#!/about"
   },
   {
     "name": "Slashed",
     "url": "https://www.roblox.com/games/113033806230936/Slashed",
     "dev": "gabosons",
-    "img": "assets/games/slashed.png"
+    "img": "assets/games/slashed.png",
+    "group": "Crazay Art",
+    "groupUrl": "https://www.roblox.com/communities/1015860650/Crazay-Art#!/about"
   },
   {
     "name": "Merge a Tank",
     "url": "https://www.roblox.com/games/121582128546193/Merge-a-Tank",
     "dev": "Habit Games",
-    "img": "assets/games/merge-a-tank.png"
+    "img": "assets/games/merge-a-tank.png",
+    "group": "Habit Games",
+    "groupUrl": "https://www.roblox.com/communities/12860813/Habit-Games#!/about"
   },
   {
     "name": "Veloria",
     "url": "https://www.roblox.com/games/135057009844111/Veloria",
     "dev": "dylann2999",
-    "img": "assets/games/veloria.png"
+    "img": "assets/games/veloria.png",
+    "group": "KillerVerloren",
+    "groupUrl": "https://www.roblox.com/users/20716596/profile/"
   },
   {
     "name": "Launch Anything",
     "url": "https://www.roblox.com/games/128684318683332/Launch-Anything-Dev",
     "dev": "awesomely",
-    "img": "assets/games/launch-anything.png"
+    "img": "assets/games/launch-anything.png",
+    "group": "NextPlay Games",
+    "groupUrl": "https://www.roblox.com/communities/5331408/NextPlay-Games#!/about"
   },
   {
     "name": "Snowball Simulator",
     "url": "https://www.roblox.com/games/135335481010813/Snowball-Simulator",
     "dev": "littlenavybro11",
-    "img": "assets/games/snowball-simulator.png"
+    "img": "assets/games/snowball-simulator.png",
+    "group": "NavyBro",
+    "groupUrl": "https://www.roblox.com/users/1511882387/profile/"
   },
   {
     "name": "Drill a Crystal",
     "url": "https://www.roblox.com/games/80618964331867/Drill-a-Crystal",
     "dev": "Habit Games",
-    "img": "assets/games/drill-a-crystal.png"
+    "img": "assets/games/drill-a-crystal.png",
+    "group": "Habit Games",
+    "groupUrl": "https://www.roblox.com/communities/12860813/Habit-Games#!/about"
   },
   {
     "name": "Clean the Gas Station",
     "url": "https://www.roblox.com/games/100146733809259/Clean-the-Gas-Station",
     "dev": ".demilo",
-    "img": "assets/games/clean-the-gas-station.png"
+    "img": "assets/games/clean-the-gas-station.png",
+    "group": "Sort My Life Studio's",
+    "groupUrl": "https://www.roblox.com/communities/696373120/Sort-My-Life-Studios#!/about"
   },
   {
     "name": "Brickbattle Games",
     "url": "https://www.roblox.com/games/140002477845178/Brickbattle-Games",
     "dev": "br0keboy",
-    "img": "assets/games/brickbattle-games.png"
+    "img": "assets/games/brickbattle-games.png",
+    "group": "Brickbattle Games Fan Club",
+    "groupUrl": "https://www.roblox.com/communities/434753834/Brickbattle-Games-Fan-Club#!/about"
   },
   {
     "name": "Fat Race",
     "url": "https://www.roblox.com/games/18130504174/Fat-Race",
     "dev": "Habit Games",
-    "img": "assets/games/fat-race.png"
+    "img": "assets/games/fat-race.png",
+    "group": "Habit Games",
+    "groupUrl": "https://www.roblox.com/communities/12860813/Habit-Games#!/about"
   },
   {
     "name": "Hideout",
     "url": "https://www.roblox.com/games/112080268171774/Hideout",
     "dev": "pedropit",
-    "img": "assets/games/hideout.png"
+    "img": "assets/games/hideout.png",
+    "group": "Hideout // Company",
+    "groupUrl": "https://www.roblox.com/communities/115147997/Hideout-Company#!/about"
   },
-    {
+  {
     "name": "LAST STAND: SAFEHEAVEN",
     "url": "https://www.roblox.com/games/84998711253961/LAST-STAND-SAFEHAVEN",
     "dev": "shrekx.",
-    "img": "assets/games/safeheaven.png"
+    "img": "assets/games/safeheaven.png",
+    "group": "N/A.",
+    "groupUrl": ""
   },
-    {
+  {
     "name": "Build a Ring Defense",
     "url": "https://www.roblox.com/games/70701310349879/Build-a-Ring-Defense",
     "dev": "jayyy7777",
-    "img": "assets/games/build_a_ring_defense.png"
+    "img": "assets/games/build_a_ring_defense.png",
+    "group": "+1 slime",
+    "groupUrl": "https://www.roblox.com/communities/159531319/1-slime#!/about"
   },
-    {
+  {
     "name": "Make Jelly",
     "url": "https://www.roblox.com/games/76024316531370/Make-Jelly",
     "dev": "._moon_",
-    "img": "assets/games/make_jelly.png" 
+    "img": "assets/games/make_jelly.png",
+    "group": "SquishyStudio",
+    "groupUrl": "https://www.roblox.com/communities/186945514/SquishyStudio#!/about"
   },
-      {
+  {
     "name": "Infect The Water",
     "url": "https://www.roblox.com/games/79361196029504/Infect-The-Water",
     "dev": "jurijbevc.",
-    "img": "assets/games/infect_the_water.png"
+    "img": "assets/games/infect_the_water.png",
+    "group": "Infected Labs",
+    "groupUrl": "https://www.roblox.com/communities/304784141/Infected-Labs#!/about"
+  },
+    {
+    "name": "Catch & Roll",
+    "url": "https://www.roblox.com/games/123985569433618/Catch-Roll",
+    "dev": "jakedevvs",
+    "img": "assets/games/Catch & Roll.png",
+    "group": "SUSHI LUVERS",
+    "groupUrl": "https://www.roblox.com/communities/967259087/SUSHI-LUVERS#!/about"
+  },
+    {
+    "name": "Freeze or Die",
+    "url": "https://www.roblox.com/games/90533479785358/Freezeordietesting",
+    "dev": "distancelolol",
+    "img": "assets/games/Freeze or Die.png",
+    "group": "Scripted Pencils",
+    "groupUrl": "https://www.roblox.com/communities/333175239/Scripted-Pencils#!/about"
+  },
+    {
+    "name": "Fortify Tower Defense",
+    "url": "https://www.roblox.com/games/90554449309730/Fortify-Tower-Defense-DEV",
+    "dev": "displayresolutions",
+    "img": "assets/games/Fortify Tower Defense.png",
+    "group": "Fortify Community",
+    "groupUrl": "https://www.roblox.com/communities/8515358/Fortify-Community#!/about"
+  },
+    {
+    "name": "Clean the Stores",
+    "url": "https://www.roblox.com/games/139422634028895/Clean-The-Stores",
+    "dev": ".demilo",
+    "img": "assets/games/Clean the Stores.png",
+    "group": "Over Forester",
+    "groupUrl": "https://www.roblox.com/communities/1003429730/Over-Forester#!/about"
   }
 ]
