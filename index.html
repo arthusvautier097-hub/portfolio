@@ -1712,6 +1712,9 @@
     pages.forEach(p => p.classList.toggle('active', p.id === 'page-' + id));
     navTriggers.forEach(a => a.classList.toggle('active-link', a.dataset.page === id));
 
+    const heroCta = document.querySelector('.hero-cta');
+    if (heroCta) heroCta.style.display = id === 'home' ? '' : 'none';
+
     const activePage = document.getElementById('page-' + id);
     if (activePage) {
       const reveals = activePage.querySelectorAll('.reveal');
