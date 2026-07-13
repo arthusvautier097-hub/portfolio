@@ -543,24 +543,6 @@
 
   .asset-card { cursor: pointer; }
 
-  .asset-group-btn {
-    display: inline-block;
-    margin-top: 0.55rem;
-    padding: 0.35rem 0.7rem;
-    font-size: 0.7rem;
-    font-weight: 600;
-    color: var(--text);
-    background: var(--border);
-    border-radius: 6px;
-    text-decoration: none;
-    transition: background 0.2s, color 0.2s;
-  }
-
-  .asset-group-btn:hover {
-    background: var(--accent);
-    color: #fff;
-  }
-
   /* ---- ASSET MODAL (game/wiki preview popup) ---- */
   .asset-modal-overlay {
     position: fixed;
@@ -645,13 +627,40 @@
 
   .asset-modal-body { padding: 1.3rem 1.4rem 1.5rem; }
 
+  .asset-modal-name-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
   .asset-modal-name {
     font-family: 'Syne', sans-serif;
     font-weight: 800;
     font-size: 1.15rem;
     color: var(--text);
-    margin-bottom: 0.5rem;
     line-height: 1.3;
+  }
+
+  .asset-modal-group-btn {
+    flex-shrink: 0;
+    display: none;
+    padding: 0.35rem 0.7rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--text);
+    background: var(--border);
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .asset-modal-group-btn.visible { display: inline-block; }
+
+  .asset-modal-group-btn:hover {
+    background: var(--accent);
+    color: #fff;
   }
 
   .asset-modal-meta {
@@ -1157,9 +1166,9 @@
       <p class="games-tested-count reveal" id="games-totals-label"></p>
       <div class="sort-controls reveal">
         <span class="sort-label">Sort by:</span>
-        <button class="sort-btn active" data-sort="visits" disabled>Most Successful</button>
-        <button class="sort-btn" data-sort="playing" disabled>Most Popular</button>
-        <button class="sort-btn" data-sort="alpha">Alphabetical</button>
+        <button class="sort-btn active" data-sort="visits" disabled>Most Successful (Visits)</button>
+        <button class="sort-btn" data-sort="playing" disabled>Most Popular (Active)</button>
+        <button class="sort-btn" data-sort="alpha">Alphabetical (A->Z)</button>
         <button class="sort-btn" data-sort="group">By Group</button>
       </div>
       <!--
@@ -1365,7 +1374,10 @@
     <div class="asset-modal-close" id="asset-modal-close">✕</div>
     <div class="asset-modal-thumb" id="asset-modal-thumb"></div>
     <div class="asset-modal-body">
-      <div class="asset-modal-name" id="asset-modal-name"></div>
+      <div class="asset-modal-name-row">
+        <div class="asset-modal-name" id="asset-modal-name"></div>
+        <a class="asset-modal-group-btn" id="asset-modal-group-btn" href="#" target="_blank" rel="noopener">View group →</a>
+      </div>
       <div class="asset-modal-meta" id="asset-modal-meta"></div>
       <div class="asset-modal-stats" id="asset-modal-stats"></div>
       <a class="asset-modal-btn" id="asset-modal-btn" href="#" target="_blank" rel="noopener">View on Roblox →</a>
@@ -1382,11 +1394,11 @@
      - img      : path to a thumbnail image, e.g. "assets/games/my-boba-store.png"
                   (optional — leave empty "" and a colored placeholder with the
                   game's first letter will be used instead until you add a file)
-     - group    : group name shown as "Groupe: ..." on the card (optional,
+     - group    : group name shown as "Group: ..." on the card (optional,
                   defaults to `dev` if left empty)
      - groupUrl : direct link to the group's Roblox page — adds a
-                  "Voir le groupe →" button on the card (optional, leave
-                  empty "" to hide the button)
+                  "View group →" button in the preview modal, next to
+                  the game name (optional, leave empty "" to hide it)
      ===================================================================== */
   /* GAMES TESTED — loaded from data/games.json (see that file to add/edit
      a game: name, url, dev, img). Kept external so the Node script that
@@ -1429,10 +1441,7 @@
 
       const groupName = isGame ? (item.group || item.dev || '') : '';
       const groupLine = isGame && groupName
-        ? `<div class="asset-meta"><strong>Groupe:</strong> ${groupName}</div>`
-        : '';
-      const groupBtn = isGame && item.groupUrl
-        ? `<a class="asset-group-btn" href="${item.groupUrl}" target="_blank" rel="noopener">Voir le groupe →</a>`
+        ? `<div class="asset-meta"><strong>Group:</strong> ${groupName}</div>`
         : '';
 
       const card = document.createElement('div');
@@ -1444,12 +1453,9 @@
           <div class="asset-meta">${meta}</div>
           ${groupLine}
           <div class="asset-link">${linkLabel}</div>
-          ${groupBtn}
         </div>`;
 
       card.addEventListener('click', () => openAssetModal(item, { showDesc, gradient, letter, linkLabel, isGame }));
-      const groupBtnEl = card.querySelector('.asset-group-btn');
-      if (groupBtnEl) groupBtnEl.addEventListener('click', e => e.stopPropagation());
       container.appendChild(card);
     });
   }
@@ -1460,6 +1466,7 @@
   const assetModalOverlay = document.getElementById('asset-modal-overlay');
   const assetModalThumb   = document.getElementById('asset-modal-thumb');
   const assetModalName    = document.getElementById('asset-modal-name');
+  const assetModalGroupBtn = document.getElementById('asset-modal-group-btn');
   const assetModalMeta    = document.getElementById('asset-modal-meta');
   const assetModalStats   = document.getElementById('asset-modal-stats');
   const assetModalBtn     = document.getElementById('asset-modal-btn');
@@ -1477,6 +1484,13 @@
     assetModalMeta.innerHTML = showDesc && item.desc
       ? item.desc
       : `<strong>Dev:</strong> ${item.dev ? item.dev : 'add developer name'}`;
+
+    if (isGame && item.groupUrl) {
+      assetModalGroupBtn.href = item.groupUrl;
+      assetModalGroupBtn.classList.add('visible');
+    } else {
+      assetModalGroupBtn.classList.remove('visible');
+    }
 
     assetModalBtn.href = item.url;
     assetModalBtn.textContent = linkLabel;
